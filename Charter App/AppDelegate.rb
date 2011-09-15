@@ -179,12 +179,12 @@ class AppDelegate
           when /^[m|s]\s*/
             counter += 1
             if @chartDataSource.addRecordFromString(raw) == :reload then
-              self.performSelectorOnMainThread "resetDataTable", withObject:nil, waitUntilDone:false
+              self.performSelectorOnMainThread "resetDataTable", withObject:nil, waitUntilDone:true
             end
-            @dataTable.performSelectorOnMainThread "reloadData", withObject:nil, waitUntilDone:false
+            @dataTable.performSelectorOnMainThread "reloadData", withObject:nil, waitUntilDone:true
             if counter >= @updatePeriod.to_i and self.updatePeriod != "never" then
               counter = 0
-              plotController.performSelectorOnMainThread "rescaleAll:", withObject:self, waitUntilDone:false
+              plotController.performSelectorOnMainThread "rescaleAll:", withObject:self, waitUntilDone:true
             end
           else
             self.performSelectorOnMainThread "setStatusBarMessage:", withObject:"Got #{badMsg += 1} bad messages", waitUntilDone:false

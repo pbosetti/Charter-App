@@ -40,6 +40,16 @@
   [super killGraph];
 }
 
+- (void)dealloc
+{
+  [symbolTextAnnotation release];
+  [plotData release];
+  [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Chart rendering and set-up
+
 - (void)renderInLayer:(CPTGraphHostingView *)layerHostingView withTheme:(CPTTheme *)theme
 {
   CGRect bounds = NSRectToCGRect(layerHostingView.bounds);
@@ -111,7 +121,7 @@
   }
   for (PBChartSeries *serie in (NSArray *)[chartSeries content]) {
       // Create a plot that uses the data source method
-    CPTScatterPlot *dataSourceLinePlot = [[CPTScatterPlot alloc] init]; //autorelease];
+    CPTScatterPlot *dataSourceLinePlot = [[[CPTScatterPlot alloc] init] autorelease];
     dataSourceLinePlot.identifier = [serie id];
 
       // Set plot delegate, to know when symbols have been touched
@@ -172,13 +182,6 @@
   [self reloadData];
 }
 
-- (void)dealloc
-{
-  [symbolTextAnnotation release];
-  [plotData release];
-  [super dealloc];
-}
-
 #pragma mark -
 #pragma mark Plot Data Source Methods
 
@@ -189,15 +192,9 @@
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
-  NSMutableArray *data = [chartDataSource data];
-  NSNumber *num = [NSNumber numberWithDouble:0.0];
-  if ([data count] > 0) {
-    num = [[data objectAtIndex:index] objectAtIndex:(fieldEnum == CPTScatterPlotFieldX ? 0 : [(NSString *)[plot identifier] integerValue])];
-    if (fieldEnum == CPTScatterPlotFieldY) {
-      num = [NSNumber numberWithDouble:[num doubleValue]];
-    }
-  }
-  return num;
+  return [chartDataSource numberForPlot:plot 
+                                 field:[NSNumber numberWithUnsignedLong:fieldEnum] 
+                           recordIndex:[NSNumber numberWithUnsignedLong:index]];
 }
 
 #pragma mark -

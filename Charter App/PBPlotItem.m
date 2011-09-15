@@ -17,9 +17,7 @@
 @synthesize chartSeries;
 
 + (void)registerPlotItem:(id)item
-{
-  NSLog(@"registerPlotItem for class %@", [item class]);
-  
+{  
   Class itemClass = [item class];
 	
   if (itemClass) {

@@ -14,7 +14,8 @@
 - (NSMutableArray *)data;
 - (NSNumber *)numberOfSeries;
 - (id)type;
-- (NSString *)s_type;
+- (NSNumber *)chartType;
+-(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSNumber *)fieldEnum recordIndex:(NSNumber *)index;
 @end
 
 @interface PBChartSeries : NSObject

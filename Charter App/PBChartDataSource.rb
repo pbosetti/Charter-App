@@ -11,6 +11,7 @@ class AlignmentError < RuntimeError
 end
 
 class PBChartDataSource
+  TYPES = {s:0, m:1}
   attr_reader :data, :type, :numberOfSeries
   
   def initialize
@@ -23,7 +24,9 @@ class PBChartDataSource
     @numberOfSeries = 1
   end
   
-  def s_type; type.to_s; end
+  def chartType
+    TYPES[type]
+  end
   
   def addRecordFromString(aString)
     schemeChanged = false
@@ -94,18 +97,15 @@ class PBChartDataSource
   end
   
   def numberForPlot(plot, field:fieldEnum, recordIndex:index)
-    p = 0 #plot.index
     num = 0
     case @type
       when :m
-      num = fieldEnum == 0 ? @data[index][p][0] : @data[index][p][1]
+      serie = plot.identifier.integerValue - 1
+      num = fieldEnum == 0 ? @data[index][serie][0] : @data[index][serie][1]
       when :s
-      num = fieldEnum == 0 ? @data[index][0] : @data[index][p]
+      serie = plot.identifier.integerValue
+      num = fieldEnum == 0 ? @data[index][0] : @data[index][serie]
     end
-    #NSNumber *num = [[plotData objectAtIndex:index] valueForKey:(fieldEnum == CPScatterPlotFieldX ? @"x" : @"y")];
-    #if fieldEnum == CPScatterPlotFieldY then
-    #  num = [NSNumber numberWithDouble:[num doubleValue]];
-    #end
     return num
   end
 

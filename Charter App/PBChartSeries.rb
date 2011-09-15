@@ -11,6 +11,7 @@ framework "Cocoa"
 class PBChartSeries
   attr_accessor :name, :color, :thickness, :symbol, :symbolSize, :enabled
   attr_accessor :data
+  
   def PBChartSeries.resetCounter(n=0)
     @@count = n
   end

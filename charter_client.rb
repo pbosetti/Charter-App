@@ -35,9 +35,10 @@ end
 if __FILE__ == $0
   ch = Charter::Client.new(1)
   ch.clear
-  20.times do |i|
-    ch << "s #{i/10.0} #{rand} #{rand} #{rand}"
-    sleep 0.1
+  500.times do |i|
+    #ch << "m #{(i)/10.0},#{rand} #{(i)/10.0+rand*0.01}},#{rand}"
+    ch << "s #{(i)/10.0} #{rand} #{rand} #{rand}"
+    sleep 0.01
   end
   #ch.close
 end
