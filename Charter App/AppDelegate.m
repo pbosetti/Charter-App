@@ -82,4 +82,9 @@
   [[[NSTableView alloc] init] setNumb
   [[mainView animator] 
 }
+
+- (IBAction)updateCharts:(id)sender
+   {
+     
+   }
 @end

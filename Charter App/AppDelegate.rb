@@ -55,6 +55,10 @@ class AppDelegate
     end
   end
   
+  def updateCharts(sender)
+    plotController.updateCharts(self)
+  end
+  
   def resetDataTable(args=nil)
     while (cols = @dataTable.tableColumns).count > 0
       cols.length.times {|i| @dataTable.removeTableColumn(cols[i])}
@@ -218,7 +222,7 @@ class AppDelegate
   def tableViewSelectionDidChange(aNotification)
     
   end
-  
+    
   # DELEGATES for application
   def applicationWillTerminate(aNotification)
     @defaults.setInteger(@updatePeriod.to_i, forKey:"updatePeriod")                

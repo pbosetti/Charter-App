@@ -69,7 +69,7 @@
 /* Begin PBXFileReference section */
 		884C892D141A3BF0007B852D /* PBScatterPlot.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = PBScatterPlot.rb; sourceTree = "<group>"; };
 		8856631313EB409300009420 /* Workaround.Workaround */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workaround.Workaround; sourceTree = BUILT_PRODUCTS_DIR; };
-		8856631613EB409300009420 /* Workaround-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workaround-Info.plist"; path = "Testing/Workaround-Info.plist"; sourceTree = SOURCE_ROOT; };
+		8856631613EB409300009420 /* Workaround-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workaround-Info.plist"; path = "Charter App/Workaround-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8856631713EB415B00009420 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8856631813EB415B00009420 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8858ED7C140E91FB00217104 /* Charter.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Charter.icns; sourceTree = "<group>"; };

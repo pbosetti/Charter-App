@@ -42,6 +42,7 @@
 - (IBAction)selectID:(id)sender;
 - (IBAction)test:(id)sender;
 - (IBAction)openTerminal:(id)sender;
+- (IBAction)updateCharts:(id)sender;
 
 @property (assign) IBOutlet NSToolbarItem *startStopButton;
 @property (assign) IBOutlet NSTextField *port;
