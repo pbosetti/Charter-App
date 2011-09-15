@@ -18,6 +18,9 @@ class PBChartSeries
   @@count = 0
   COLOR_SET = 6
   
+  def isEnabled
+    @enabled ? 1 : 0
+  end
   
   def initialize(name=nil)
     @name = (name || "Series #{@@count += 1}")

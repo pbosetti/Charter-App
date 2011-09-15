@@ -23,5 +23,5 @@
 - (NSColor *)color;
 - (NSNumber *)thickness;
 - (NSNumber *)symbolSize;
-- (BOOL)enabled;
+- (NSNumber *)isEnabled;
 @end

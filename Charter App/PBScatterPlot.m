@@ -137,9 +137,8 @@
 {
   CPTScatterPlot *dataSourceLinePlot = (CPTScatterPlot *)[graph plotWithIdentifier:serie.id];
   dataSourceLinePlot.identifier = serie.id;
-  
   CPTMutableLineStyle *lineStyle = [[dataSourceLinePlot.dataLineStyle mutableCopy] autorelease];
-  lineStyle.lineWidth = serie.enabled == -80 ? [serie.thickness floatValue] : 0.0f;
+  lineStyle.lineWidth = ([serie.isEnabled boolValue] ? [serie.thickness floatValue] : 0.0f);
   lineStyle.lineColor = [self cptColorFromNSColor:serie.color];
   dataSourceLinePlot.dataLineStyle = lineStyle;
   
@@ -149,7 +148,7 @@
   CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
   plotSymbol.fill = [CPTFill fillWithColor:[self cptColorFromNSColor:serie.color]];
   plotSymbol.lineStyle = symbolLineStyle;
-  float symbolSize = (serie.enabled == -80 ? [serie.symbolSize floatValue] : 0.0f);
+  float symbolSize = ([serie.isEnabled boolValue] ? [serie.symbolSize floatValue] : 0.0f);
   plotSymbol.size = CGSizeMake(symbolSize, symbolSize);
   dataSourceLinePlot.plotSymbol = plotSymbol;
 }
