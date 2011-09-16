@@ -30,6 +30,7 @@
   NSToolbarItem *inspectDataStream;
   NSTextField *port;
   NSToolbarItem *startStopButton;
+  NSUserDefaultsController *userDefaultsController;
 }
 
 - (IBAction)editSeriesItem:(id)sender;
@@ -44,6 +45,7 @@
 - (IBAction)openTerminal:(id)sender;
 - (IBAction)updateCharts:(id)sender;
 
+@property (assign) IBOutlet NSUserDefaultsController *userDefaultsController;
 @property (assign) IBOutlet NSToolbarItem *startStopButton;
 @property (assign) IBOutlet NSTextField *port;
 @property (assign) IBOutlet NSWindow *window;

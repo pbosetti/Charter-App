@@ -15,6 +15,7 @@ class PBChartDataSource
   attr_reader :data, :type, :numberOfSeries
   
   def initialize
+    @dfs = NSUserDefaults.standardUserDefaults
     reset
   end
   
@@ -26,6 +27,14 @@ class PBChartDataSource
   
   def chartType
     TYPES[type]
+  end
+  
+  def cropDataIfNeeded
+    unlimited = @dfs.objectForKey("unlimitedBuffer")
+    size = (@dfs.objectForKey("bufferSize") || 100)
+    if not unlimited and @data.size > size then
+      @data = @data[-size..-1]
+    end
   end
   
   def addRecordFromString(aString)
@@ -45,6 +54,7 @@ class PBChartDataSource
     when :s
       @type = :s
       @data << tokens[1..-1].map {|e| e.to_f}
+      self.cropDataIfNeeded
       @numberOfSeries = @data[0].count - 1
       schemeChanged = true if @numberOfSeries != tokens.size - 2
     when :m
@@ -52,6 +62,7 @@ class PBChartDataSource
       record = NSMutableArray.new
       tokens[1..-1].each {|c| record << c.split(',').map {|e| e.to_f}}
       @data << record
+      self.cropDataIfNeeded
       @numberOfSeries = @data[0].count
       schemeChanged = true if @numberOfSeries != tokens.size - 1
     else

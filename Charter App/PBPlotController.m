@@ -109,6 +109,11 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
   [plotItem rescaleAll];
 }
 
+- (IBAction)setupGrid:(id)sender
+{
+  [plotItem setupGrid];
+}
+
 #pragma mark -
 #pragma mark PlotItem Property
 
@@ -121,7 +126,7 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
 {
   if (plotItem != item) {
     [plotItem killGraph];
-    [plotItem release];
+    //[plotItem release];
     
     plotItem = [item retain];
     

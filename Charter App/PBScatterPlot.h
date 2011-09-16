@@ -7,6 +7,7 @@
 //
 
 #import "PBPlotItem.h"
+#define DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface PBScatterPlot : PBPlotItem < CPTPlotSpaceDelegate,CPTPlotDataSource,CPTScatterPlotDelegate>
 {
@@ -28,5 +29,6 @@
 - (void)rescaleAll;
 - (void)setupCharts;
 - (void)createCharts;
+- (void)setupGrid;
 - (void)setPropertiesForChart:(PBChartSeries *)serie;
 @end

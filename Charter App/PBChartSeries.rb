@@ -24,11 +24,12 @@ class PBChartSeries
   end
   
   def initialize(name=nil)
+    dfs = NSUserDefaults.standardUserDefaults
     @name = (name || "Series #{@@count += 1}")
     @id = @@count
-    @thickness = 1.0
+    @thickness = (dfs.objectForKey("defaultLineWidth") || 1.0)
     @symbol = "No Symbol"
-    @symbolSize = 10.0
+    @symbolSize = (dfs.objectForKey("defaultSymbolSize") || 10.0)
     @color = colorCycle(@@count)
     @enabled = true
   end

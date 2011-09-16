@@ -24,7 +24,7 @@
     // There's no autorelease pool here yet...
     PBPlotItem *plotItem = [[itemClass alloc] init];
     if (plotItem) {
-      [plotItem release];
+      //[plotItem release];
     }
   }
 }
@@ -59,7 +59,7 @@
     [defaultLayerHostingView removeFromSuperview];
     
     defaultLayerHostingView.hostedLayer = nil;
-    [defaultLayerHostingView release];
+    //[defaultLayerHostingView release];
     defaultLayerHostingView = nil;
   }
     

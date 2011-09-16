@@ -40,6 +40,7 @@
 - (IBAction)test:(id)sender;
 - (IBAction)rescaleAll:(id)sender;
 - (IBAction)updateCharts:(id)sender;
+- (IBAction)setupGrid:(id)sender;
 
 - (CPTTheme *)currentTheme;
 - (void)reloadData;

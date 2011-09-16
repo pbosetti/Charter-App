@@ -8,26 +8,30 @@
 require 'socket'
 
 BUNDLE = NSBundle.mainBundle
+VERSION = BUNDLE.infoDictionary["CFBundleShortVersionString"]
+BUILD = BUNDLE.infoDictionary["CFBundleVersion"]
 PORT = 2000
 
 class AppDelegate
-  attr_accessor :window, :startButton, :sourceList, :seriesPopover, :recordPopover, :resetCounterButton
+  attr_accessor :window, :startButton, :sourceList, :seriesPopover, :resetCounterButton
   attr_accessor :splitView, :mainView, :dataTableView, :dataTable, :chartDataSource
   attr_accessor :hitCount, :port
   attr_accessor :seriesArray, :seriesArrayController, :seriesTableView
   attr_accessor :listening, :statusBarMessage, :startStopButton
   attr_accessor :chartHostView
   attr_accessor :plotController
+  attr_accessor :userDefaultsController
   attr_writer :updatePeriod
   
   def initialize
     @listening = 0
-    @listeningSocket = UDPSocket.open 
+    @listeningSocket = UDPSocket.open
+    @defaults = NSUserDefaults.standardUserDefaults
+    @defaults.registerDefaults(NSDictionary.dictionaryWithContentsOfFile(NSBundle.mainBundle.resourcePath + "/Charter_defaults.plist"))
   end
   
   def applicationDidFinishLaunching(a_notification)
     # Insert code here to initialize your application
-    @defaults = NSUserDefaults.standardUserDefaults
     @seriesArray = []
     @hitCount = 0
     @splitViewPosition = 120.0
@@ -38,6 +42,7 @@ class AppDelegate
     @listeningThread = Thread.start {}
     @guideVisible = true
     self.setUpdatePeriod(@defaults.integerForKey("updatePeriod") || 10)
+    @userDefaultsController.setInitialValues(NSDictionary.dictionaryWithContentsOfFile(NSBundle.mainBundle.resourcePath + "/Charter_defaults.plist"))
   end
   
   def windowControllerDidLoadNib(aController)
@@ -132,11 +137,11 @@ class AppDelegate
     NSAnimationContext.currentContext.setDuration 1.0
     if width == 0.0
       splitView.animator.setPosition @splitViewPosition, ofDividerAtIndex:0
-      sender.setLabel "Hide settings"
+      sender.setLabel "Hide legend"
     else
       @splitViewPosition = width
       splitView.animator.setPosition 0, ofDividerAtIndex:0
-      sender.setLabel "Show settings"
+      sender.setLabel "Show legend"
     end
   end
   
@@ -148,10 +153,6 @@ class AppDelegate
     else
       dataTableView.animator.removeFromSuperview
     end
-  end
-  
-  def selectID(sender)
-    recordPopover.showRelativeToRect sender.frame, ofView:sender, preferredEdge:NSMaxYEdge
   end
   
   def startListening(sender)
@@ -176,6 +177,13 @@ class AppDelegate
             self.performSelectorOnMainThread "setStatusBarMessage:", withObject:"Remotely cleared", waitUntilDone:false
             @dataTable.performSelectorOnMainThread "reloadData", withObject:nil, waitUntilDone:false
             @dataTable.performSelectorOnMainThread "reloadData", withObject:nil, waitUntilDone:false
+          when /^NAMES\s(.*)/i
+            names = $1.split
+            if names.count == seriesArray.count then
+              @seriesArray.each_with_index do |s,i|
+                s.name = names[i]
+              end
+            end
           when /^[m|s]\s*/
             counter += 1
             if @chartDataSource.addRecordFromString(raw) == :reload then
