@@ -22,6 +22,7 @@ class AppDelegate
   attr_accessor :plotController
   attr_accessor :userDefaultsController
   attr_writer :updatePeriod
+  attr_reader :allowSavingData
   
   def initialize
     @listening = 0
@@ -43,6 +44,29 @@ class AppDelegate
     @guideVisible = true
     self.setUpdatePeriod(@defaults.integerForKey("updatePeriod") || 10)
     @userDefaultsController.setInitialValues(NSDictionary.dictionaryWithContentsOfFile(NSBundle.mainBundle.resourcePath + "/Charter_defaults.plist"))
+  end
+  
+  def saveDataTable(sender)
+    savingDialog = NSSavePanel.savePanel
+    savingDialog.setAllowedFileTypes %w|txt dat|
+    if savingDialog.runModal == NSOKButton then
+      puts "saving to #{savingDialog.URL.path}"
+      names = []
+      @seriesArray.each {|s| names << s.name }
+      @chartDataSource.saveDataOnFile(savingDialog.URL.path, withHeader:names)
+    end
+  end
+  
+  def allowSavingData
+    chartDataSource.data.count > 0
+  end
+  
+  def showAboutBox(sender)
+    options = {
+      "Copyright" => "© Paolo Bosetti, 2011",
+      "ApplicationName" => "Charter - Free version"
+    }
+    NSApplication.sharedApplication.orderFrontStandardAboutPanelWithOptions(options)
   end
   
   def windowControllerDidLoadNib(aController)
@@ -118,8 +142,10 @@ class AppDelegate
   
   def buttonClick(sender)
     puts "ButtonClick"
-    p seriesArray
-    p seriesArrayController.selection
+    options = {
+      "Copyright" => "Paolo Bosetti 2011"
+    }
+    NSApplication.sharedApplication.orderFrontStandardAboutPanelWithOptions(options)
   end
 
   def openTerminal(sender)
@@ -208,7 +234,6 @@ class AppDelegate
     end
   end
   
- 
   # DELEGATES for splitView
   def splitView(sender, resizeSubviewsWithOldSize:oldSize)
     dividerThickness = sender.dividerThickness

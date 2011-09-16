@@ -44,9 +44,9 @@ end
 if __FILE__ == $0
   ch = Charter::Client.new(1)
   ch.clear
-  500.times do |i|
-    #ch << "m #{(i)/10.0},#{rand} #{(i)/10.0+rand*0.01}},#{rand}"
-    ch << "s #{(i)/10.0} #{Math::sin(i/10.0)} #{1.1*Math::cos(i/10.0)} #{0.7*Math::sin(i/10.0)+rand*0.05}"
+  200.times do |i|
+    ch << "m #{(i)/10.0},#{rand} #{(i)/10.0+rand*0.01}},#{rand}"
+    #ch << "s #{(i)/10.0} #{Math::sin(i/10.0)} #{1.1*Math::cos(i/10.0)} #{0.7*Math::sin(i/10.0)+rand*0.05}"
   end
   ch.names %w|speed velocity acceleration|
   #ch.close

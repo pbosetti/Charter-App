@@ -29,6 +29,28 @@ class PBChartDataSource
     TYPES[type]
   end
   
+  def saveDataOnFile(fileName, withHeader:names)
+    File.open(fileName, "w") do |file|
+      if names then
+        case @type
+        when :s
+          file.print "X "
+          file.puts names * "\t"
+        when :m
+          h = []
+          names.each_with_index do |n,i| 
+            h << "X_#{i+1}"
+            h << n
+          end
+          file.puts h * "\t"
+        end
+      end
+      data.each do |line|
+        file.puts line * "\t"
+      end
+    end
+  end
+  
   def cropDataIfNeeded
     unlimited = @dfs.objectForKey("unlimitedBuffer")
     size = (@dfs.objectForKey("bufferSize") || 100)

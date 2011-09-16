@@ -44,6 +44,8 @@
 - (IBAction)test:(id)sender;
 - (IBAction)openTerminal:(id)sender;
 - (IBAction)updateCharts:(id)sender;
+- (IBAction)showAboutBox:(id)sender;
+- (IBAction)saveDataTable:(id)sender;
 
 @property (assign) IBOutlet NSUserDefaultsController *userDefaultsController;
 @property (assign) IBOutlet NSToolbarItem *startStopButton;
@@ -66,5 +68,5 @@
 @property (assign) IBOutlet CPLayerHostingView *chartHostView;
 @property (assign) IBOutlet PBPlotController *plotController;
 @property (assign) IBOutlet NSTextFieldCell *updatePeriod;
-
+@property (readonly) IBOutlet BOOL allowSavingData;
 @end

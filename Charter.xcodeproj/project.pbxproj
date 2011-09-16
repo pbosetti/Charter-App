@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8812259514237D5E0060B15E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8812259414237D5E0060B15E /* Credits.rtf */; };
 		884C8930141A458B007B852D /* PBScatterPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899556B1410FDEB002A9D9A /* PBScatterPlot.m */; };
 		8856630713EB409300009420 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887802A813EB1C4800547434 /* main.m */; };
 		8856630913EB409300009420 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8878029B13EB1C4800547434 /* Cocoa.framework */; };
@@ -68,6 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8812259414237D5E0060B15E /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		884C892D141A3BF0007B852D /* PBScatterPlot.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = PBScatterPlot.rb; sourceTree = "<group>"; };
 		8856631313EB409300009420 /* Workaround.Workaround */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workaround.Workaround; sourceTree = BUILT_PRODUCTS_DIR; };
 		8856631613EB409300009420 /* Workaround-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workaround-Info.plist"; path = "Charter App/Workaround-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -201,9 +203,10 @@
 		887802AB13EB1C4800547434 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				88C99F1B1423636C004C5E26 /* Charter_defaults.plist */,
 				8880C1F113FBBCAB00D65EAB /* Icons */,
+				88C99F1B1423636C004C5E26 /* Charter_defaults.plist */,
 				887802AC13EB1C4800547434 /* MainMenu.xib */,
+				8812259414237D5E0060B15E /* Credits.rtf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				8858ED7D140E91FB00217104 /* Charter.icns in Resources */,
 				889955481410D1EB002A9D9A /* Terminal.icns in Resources */,
 				88C99F1C1423636C004C5E26 /* Charter_defaults.plist in Resources */,
+				8812259514237D5E0060B15E /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,8 +502,9 @@
 		887802B713EB1C4800547434 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = x86_64;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -508,8 +513,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Charter App/Charter-Prefix.pch";
 				INFOPLIST_FILE = "Charter App/Charter-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Charter;
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -517,8 +523,9 @@
 		887802B813EB1C4800547434 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = x86_64;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -527,8 +534,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Charter App/Charter-Prefix.pch";
 				INFOPLIST_FILE = "Charter App/Charter-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Charter;
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -536,12 +544,14 @@
 		887802BA13EB1C4800547434 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 			};
 			name = Debug;
 		};
 		887802BB13EB1C4800547434 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 			};
 			name = Release;
 		};
