@@ -19,6 +19,16 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
 @synthesize chartDataSource;
 @synthesize chartSeries;
 
+
+- (id)init
+{
+  if ((self = [super init])) {
+    
+  }
+  
+  return self;
+}
+
 - (void)setupThemes
 {
   [themePopUpButton removeAllItems];
@@ -29,8 +39,9 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
     [themePopUpButton addItemWithTitle:[c defaultName]];
   }
   
-  self.currentThemeName = kThemeTableViewControllerDefaultTheme;
-  [themePopUpButton selectItemWithTitle:kThemeTableViewControllerDefaultTheme];
+//  [themePopUpButton selectItemWithTitle:kThemeTableViewControllerDefaultTheme];
+  [themePopUpButton selectItemAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"selectedTheme"]];
+  self.currentThemeName = [themePopUpButton titleOfSelectedItem];
 }
 
 - (void)awakeFromNib

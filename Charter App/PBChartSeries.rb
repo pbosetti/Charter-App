@@ -28,7 +28,7 @@ class PBChartSeries
     @name = (name || "Series #{@@count += 1}")
     @id = @@count
     @thickness = (dfs.objectForKey("defaultLineWidth") || 1.0)
-    @symbol = "No Symbol"
+    @symbol = (dfs.objectForKey("defaultSymbol") || 1)
     @symbolSize = (dfs.objectForKey("defaultSymbolSize") || 10.0)
     @color = colorCycle(@@count)
     @enabled = true

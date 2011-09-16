@@ -24,5 +24,6 @@
 - (NSColor *)color;
 - (NSNumber *)thickness;
 - (NSNumber *)symbolSize;
+- (NSNumber *)symbol;
 - (NSNumber *)isEnabled;
 @end

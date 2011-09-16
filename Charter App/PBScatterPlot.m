@@ -19,6 +19,8 @@
 {
 	if ((self = [super init])) {
     title = @"Simple Scatter Plot";
+    symbols = [NSArray arrayWithObjects:@"crossPlotSymbol",@"ellipsePlotSymbol",@"rectanglePlotSymbol",
+               @"trianglePlotSymbol",@"plusPlotSymbol",@"starPlotSymbol",@"diamondPlotSymbol",nil];
       //plotList = [[NSMutableArray alloc] init];
   }
   
@@ -163,7 +165,7 @@
   // Add plot symbols
   CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
   symbolLineStyle.lineColor = [CPTColor blackColor];
-  CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
+  CPTPlotSymbol *plotSymbol = [CPTPlotSymbol performSelector:NSSelectorFromString([symbols objectAtIndex:[serie.symbol integerValue]])];
   plotSymbol.fill = [CPTFill fillWithColor:[self cptColorFromNSColor:serie.color]];
   plotSymbol.lineStyle = symbolLineStyle;
   float symbolSize = ([serie.isEnabled boolValue] ? [serie.symbolSize floatValue] : 0.0f);

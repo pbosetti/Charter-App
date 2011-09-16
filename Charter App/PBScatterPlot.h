@@ -22,6 +22,7 @@
   CPTXYPlotSpace      *plotSpace;
   
   NSArray*            plotData;
+  NSArray            *symbols;
 }
 
 
