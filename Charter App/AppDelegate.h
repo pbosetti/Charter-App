@@ -46,6 +46,7 @@
 - (IBAction)updateCharts:(id)sender;
 - (IBAction)showAboutBox:(id)sender;
 - (IBAction)saveDataTable:(id)sender;
+- (IBAction)launchGitHub:(id)sender;
 
 @property (assign) IBOutlet NSUserDefaultsController *userDefaultsController;
 @property (assign) IBOutlet NSToolbarItem *startStopButton;

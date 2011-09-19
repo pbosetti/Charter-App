@@ -125,6 +125,31 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
   [plotItem setupGrid];
 }
 
+-(IBAction)exportToPNG:(id)sender
+{
+	NSSavePanel *pngSavingDialog = [NSSavePanel savePanel];
+	[pngSavingDialog setAllowedFileTypes:[NSArray arrayWithObject:@"png"]];
+	
+	if ( [pngSavingDialog runModal] == NSOKButton ) {
+		NSImage *image = [((PBScatterPlot *)plotItem).graph imageOfLayer];
+    NSData *tiffData = [image TIFFRepresentation];
+    NSBitmapImageRep *tiffRep = [NSBitmapImageRep imageRepWithData:tiffData];
+    NSData *pngData = [tiffRep representationUsingType:NSPNGFileType properties:nil];
+		[pngData writeToURL:[pngSavingDialog URL] atomically:NO];
+	}		
+}
+
+-(IBAction)exportToPDF:(id)sender
+{
+	NSSavePanel *pdfSavingDialog = [NSSavePanel savePanel];
+	[pdfSavingDialog setAllowedFileTypes:[NSArray arrayWithObject:@"pdf"]];
+	
+	if ( [pdfSavingDialog runModal] == NSOKButton ) {
+		NSData *dataForPDF = [((PBScatterPlot *)plotItem).graph dataForPDFRepresentationOfLayer];
+		[dataForPDF writeToURL:[pdfSavingDialog URL] atomically:NO];
+  }		
+}
+
 #pragma mark -
 #pragma mark PlotItem Property
 

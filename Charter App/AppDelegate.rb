@@ -44,13 +44,20 @@ class AppDelegate
     @guideVisible = true
     self.setUpdatePeriod(@defaults.integerForKey("updatePeriod") || 10)
     @userDefaultsController.setInitialValues(NSDictionary.dictionaryWithContentsOfFile(NSBundle.mainBundle.resourcePath + "/Charter_defaults.plist"))
+    if Time.now > Time.gm(2011,9,30)
+      NSAlert.alertWithMessageText("Expired!", 
+                                 defaultButton: "OK",
+                                 alternateButton: nil,
+                                 otherButton: nil,
+                                 informativeTextWithFormat: "Testing period has expired, sorry").runModal
+      exit
+    end
   end
   
   def saveDataTable(sender)
     savingDialog = NSSavePanel.savePanel
     savingDialog.setAllowedFileTypes %w|txt dat|
     if savingDialog.runModal == NSOKButton then
-      puts "saving to #{savingDialog.URL.path}"
       names = []
       @seriesArray.each {|s| names << s.name }
       @chartDataSource.saveDataOnFile(savingDialog.URL.path, withHeader:names)
@@ -193,16 +200,17 @@ class AppDelegate
         badMsg = 0
         counter = 0
         while running do
-          raw = svr.recvfrom(2048)[0].chomp
+          raw = svr.recvfrom(2048)
+          next if @defaults.integerForKey("networkOperations") == 1 and raw[1][2] != '127.0.0.1'
+          raw = raw[0].chomp
           case raw
           when /CLOSE/i
             running = false
             self.performSelectorOnMainThread "setStatusBarMessage:", withObject:"Idle", waitUntilDone:false
           when /CLEAR/i
             @chartDataSource.reset
-            self.performSelectorOnMainThread "setStatusBarMessage:", withObject:"Remotely cleared", waitUntilDone:false
-            @dataTable.performSelectorOnMainThread "reloadData", withObject:nil, waitUntilDone:false
-            @dataTable.performSelectorOnMainThread "reloadData", withObject:nil, waitUntilDone:false
+            self.performSelectorOnMainThread "setStatusBarMessage:", withObject:"Remotely cleared", waitUntilDone:true
+            @dataTable.performSelectorOnMainThread "reloadData", withObject:nil, waitUntilDone:true
           when /^NAMES\s(.*)/i
             names = $1.split
             if names.count == seriesArray.count then
@@ -232,6 +240,11 @@ class AppDelegate
       setStatusBarMessage "Stopped listening"
       UDPSocket.open.send("CLOSE", 0, 'localhost', PORT + @port.to_i)
     end
+  end
+    
+  # LAUNCHING URLS
+  def launchGitHub(sender)
+      NSWorkspace.sharedWorkspace.openURL(NSURL.URLWithString "https://github.com/pbosetti/Charter")
   end
   
   # DELEGATES for splitView

@@ -25,6 +25,7 @@
   NSArray            *symbols;
 }
 
+@property (nonatomic, assign) CPTGraph *graph;
 
 - (void)setAxisTitle:(NSString *)axisTitle atOffset:(float)offset forCoordinate:(CPTCoordinate)coordinate;
 - (void)rescaleAll;

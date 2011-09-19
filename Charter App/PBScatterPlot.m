@@ -9,6 +9,7 @@
 #import "PBScatterPlot.h"
 
 @implementation PBScatterPlot
+@synthesize graph;
 
 + (void)load
 {
