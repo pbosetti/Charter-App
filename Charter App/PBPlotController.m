@@ -170,11 +170,4 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
   }
 }
 
-#pragma mark -
-#pragma mark Popover Delegate
-- (void)popoverWillClose:(NSNotification *)notification
-{
-  [plotItem setupCharts];
-}
-
 @end

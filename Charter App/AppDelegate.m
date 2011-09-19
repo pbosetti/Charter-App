@@ -19,8 +19,6 @@
 @synthesize mainView;
 @synthesize dataPanelHUD;
 @synthesize sourceList;
-@synthesize popover;
-@synthesize recordPopover;
 @synthesize resetCounterButton;
 @synthesize seriesArrayController;
 @synthesize seriesTableView;

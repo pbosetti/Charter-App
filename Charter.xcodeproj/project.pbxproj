@@ -319,6 +319,7 @@
 		8878028E13EB1C4800547434 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0410;
 				ORGANIZATIONNAME = "Dipartimento di Ingegneria Meccanica e Strutturale";
 			};
 			buildConfigurationList = 8878029113EB1C4800547434 /* Build configuration list for PBXProject "Charter" */;
@@ -521,7 +522,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Charter App/Charter-Prefix.pch";
 				INFOPLIST_FILE = "Charter App/Charter-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Charter;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
@@ -542,7 +543,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Charter App/Charter-Prefix.pch";
 				INFOPLIST_FILE = "Charter App/Charter-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Charter;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;

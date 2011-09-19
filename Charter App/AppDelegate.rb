@@ -13,8 +13,9 @@ BUILD = BUNDLE.infoDictionary["CFBundleVersion"]
 PORT = 2000
 
 class AppDelegate
-  attr_accessor :window, :startButton, :sourceList, :seriesPopover, :resetCounterButton
+  attr_accessor :window, :startButton, :sourceList, :resetCounterButton
   attr_accessor :splitView, :mainView, :dataTableView, :dataTable, :chartDataSource
+  attr_accessor :seriesInfoPanel
   attr_accessor :hitCount, :port
   attr_accessor :seriesArray, :seriesArrayController, :seriesTableView
   attr_accessor :listening, :statusBarMessage, :startStopButton
@@ -159,12 +160,6 @@ class AppDelegate
     NSWorkspace.sharedWorkspace.launchAppWithBundleIdentifier "com.apple.Terminal", options:NSWorkspaceLaunchDefault, additionalEventParamDescriptor:nil, launchIdentifier:nil
   end
 
-  def editSeriesItem(sender)
-    if sender.selectedRow >= 0
-      seriesPopover.showRelativeToRect sender.rectOfRow(sender.selectedRow), ofView:sender, preferredEdge:NSMinXEdge
-    end
-  end
-  
   def editSettings(sender)
     width = splitView.subviews.objectAtIndex(0).frame.size.width
     NSAnimationContext.currentContext.setDuration 1.0

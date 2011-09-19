@@ -16,8 +16,6 @@
   NSTextFieldCell *updatePeriod;
   NSWindow *window;
   NSScrollView *sourceList;
-  NSPopover *popover;
-  NSPopover *recordPopover;
   NSButton *resetCounterButton;
   NSArrayController *seriesArrayController;
   NSTableView *seriesTableView;
@@ -47,6 +45,7 @@
 - (IBAction)showAboutBox:(id)sender;
 - (IBAction)saveDataTable:(id)sender;
 - (IBAction)launchGitHub:(id)sender;
+- (IBAction)showSeriesInspector:(id)sender;
 
 @property (assign) IBOutlet NSUserDefaultsController *userDefaultsController;
 @property (assign) IBOutlet NSToolbarItem *startStopButton;
@@ -57,8 +56,7 @@
 @property (assign) IBOutlet NSScrollView *dataTableView;
 @property (assign) IBOutlet NSView *mainView;
 @property (assign) IBOutlet NSScrollView *sourceList;
-@property (assign) IBOutlet NSPopover *seriesPopover;
-@property (assign) IBOutlet NSPopover *recordPopover;
+@property (assign) IBOutlet NSPanel *seriesInfoPanel;
 @property (assign) IBOutlet NSButton *resetCounterButton;
 @property (assign) IBOutlet NSArrayController *seriesArrayController;
 @property (assign) IBOutlet NSTableView *seriesTableView;
@@ -69,5 +67,6 @@
 @property (assign) IBOutlet CPLayerHostingView *chartHostView;
 @property (assign) IBOutlet PBPlotController *plotController;
 @property (assign) IBOutlet NSTextFieldCell *updatePeriod;
+
 @property (readonly) IBOutlet BOOL allowSavingData;
 @end
