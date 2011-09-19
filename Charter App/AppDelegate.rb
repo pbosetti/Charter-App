@@ -251,17 +251,23 @@ class AppDelegate
   def splitView(sender, resizeSubviewsWithOldSize:oldSize)
     dividerThickness = sender.dividerThickness
     leftRect = sender.subviews.objectAtIndex(0).frame
-    rightRect = sender.subviews.objectAtIndex(1).frame
+    midRect  = sender.subviews.objectAtIndex(1).frame
+    rightRect = sender.subviews.objectAtIndex(2).frame
     newFrame = sender.frame
     
     leftRect.size.height = newFrame.size.height
     leftRect.origin = NSMakePoint(0, 0)
-    rightRect.size.width = newFrame.size.width - leftRect.size.width - dividerThickness
+
+    midRect.size.width = newFrame.size.width - leftRect.size.width - 180 - dividerThickness
+    midRect.size.height = newFrame.size.height
+
+    rightRect.size.width = 180
     rightRect.size.height = newFrame.size.height
-    rightRect.origin.x = leftRect.size.width + dividerThickness
-    
+    rightRect.origin.x = leftRect.size.width + midRect.size.width + dividerThickness + dividerThickness
+
     sender.subviews.objectAtIndex(0).setFrame(leftRect)
-    sender.subviews.objectAtIndex(1).setFrame(rightRect)
+    sender.subviews.objectAtIndex(1).setFrame(midRect)
+    sender.subviews.objectAtIndex(2).setFrame(rightRect)
   end
   
   # DELEGATES for tableView
