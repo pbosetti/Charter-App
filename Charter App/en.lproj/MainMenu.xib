@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">11B26</string>
+		<string key="IBDocument.SystemVersion">11C55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1617</string>
-		<string key="IBDocument.AppKitVersion">1138</string>
-		<string key="IBDocument.HIToolboxVersion">566.00</string>
+		<string key="IBDocument.AppKitVersion">1138.20</string>
+		<string key="IBDocument.HIToolboxVersion">567.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string key="NS.object.0">1617</string>
@@ -2083,7 +2083,7 @@
 				<bool key="NSAnimates">YES</bool>
 			</object>
 			<object class="NSCustomView" id="882721102">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2531,6 +2531,7 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{278, 138}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="107282155"/>
 				<string key="NSReuseIdentifierKey">_NS:499</string>
 				<string key="NSClassName">NSView</string>
@@ -2545,7 +2546,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="387116779">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2693,6 +2694,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{480, 270}</string>
+					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="822130522"/>
 					<string key="NSReuseIdentifierKey">_NS:2927</string>
 				</object>
@@ -2717,7 +2719,7 @@
 			<object class="NSWindowTemplate" id="5745346">
 				<int key="NSWindowStyleMask">3</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{128, 768}, {445, 215}}</string>
+				<string key="NSWindowRect">{{121, 438}, {445, 215}}</string>
 				<int key="NSWTFlags">1685586944</int>
 				<string key="NSWindowTitle">Preferences</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -3341,7 +3343,7 @@
 												<int key="NSvFlags">268</int>
 												<string key="NSFrame">{{130, 30}, {159, 26}}</string>
 												<reference key="NSSuperview" ref="489091339"/>
-												<reference key="NSNextKeyView"/>
+												<reference key="NSNextKeyView" ref="751681234"/>
 												<string key="NSReuseIdentifierKey">_NS:179</string>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSPopUpButtonCell" key="NSCell" id="860702321">
@@ -8315,6 +8317,8 @@
 					<string>1596.IBPluginDependency</string>
 					<string>1597.IBPluginDependency</string>
 					<string>1611.IBPluginDependency</string>
+					<string>1629.IBNSWindowAutoPositionCentersHorizontal</string>
+					<string>1629.IBNSWindowAutoPositionCentersVertical</string>
 					<string>1629.IBPluginDependency</string>
 					<string>1629.NSWindowTemplate.visibleAtLaunch</string>
 					<string>1630.IBPluginDependency</string>
@@ -8717,6 +8721,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="NO"/>
+					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

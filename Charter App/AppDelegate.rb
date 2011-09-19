@@ -44,14 +44,14 @@ class AppDelegate
     @guideVisible = true
     self.setUpdatePeriod(@defaults.integerForKey("updatePeriod") || 10)
     @userDefaultsController.setInitialValues(NSDictionary.dictionaryWithContentsOfFile(NSBundle.mainBundle.resourcePath + "/Charter_defaults.plist"))
-    if Time.now > Time.gm(2011,9,30)
-      NSAlert.alertWithMessageText("Expired!", 
-                                 defaultButton: "OK",
-                                 alternateButton: nil,
-                                 otherButton: nil,
-                                 informativeTextWithFormat: "Testing period has expired, sorry").runModal
-      exit
-    end
+    # if Time.now > Time.gm(2011,9,30)
+    #   NSAlert.alertWithMessageText("Expired!", 
+    #                              defaultButton: "OK",
+    #                              alternateButton: nil,
+    #                              otherButton: nil,
+    #                              informativeTextWithFormat: "Testing period has expired, sorry").runModal
+    #   exit
+    # end
   end
   
   def saveDataTable(sender)
