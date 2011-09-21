@@ -6,11 +6,13 @@
 #  Copyright 2011 Dipartimento di Ingegneria Meccanica e Strutturale. All rights reserved.
 #
 require 'socket'
+require 'fileutils'
 
 BUNDLE = NSBundle.mainBundle
 VERSION = BUNDLE.infoDictionary["CFBundleShortVersionString"]
 BUILD = BUNDLE.infoDictionary["CFBundleVersion"]
 PORT = 2000
+#EXPIRE_TIME = Time.gm(2011,9,30)
 
 class AppDelegate
   attr_accessor :window, :startButton, :sourceList, :resetCounterButton
@@ -45,7 +47,8 @@ class AppDelegate
     @guideVisible = true
     self.setUpdatePeriod(@defaults.integerForKey("updatePeriod") || 10)
     @userDefaultsController.setInitialValues(NSDictionary.dictionaryWithContentsOfFile(NSBundle.mainBundle.resourcePath + "/Charter_defaults.plist"))
-    if Time.now > Time.gm(2011,9,30)
+    if defined?(EXPIRE_TIME) and Time.now > EXPIRE_TIME
+      puts "Running test version, will expire on #{EXPIRE_TIME}"
       NSAlert.alertWithMessageText("Expired!", 
                                  defaultButton: "OK",
                                  alternateButton: nil,
@@ -65,6 +68,21 @@ class AppDelegate
     end
   end
   
+  def saveTemplate(sender)
+    savingDialog = NSSavePanel.savePanel
+    case sender.tag
+    when 0 # ruby
+      savingDialog.setAllowedFileTypes %w|rb|
+      savingDialog.setTitle "Saving Ruby template"
+      template = "charter_client.rb"
+      savingDialog.setNameFieldStringValue(template)
+    end  
+    if savingDialog.runModal == NSOKButton then
+      puts "Saving " + savingDialog.URL.path
+      FileUtils::cp(NSBundle.mainBundle.resourcePath + "/Templates/" + template, savingDialog.URL.path)
+    end
+  end
+  
   def allowSavingData
     chartDataSource.data.count > 0
   end
@@ -74,6 +92,7 @@ class AppDelegate
       "Copyright" => "© Paolo Bosetti, 2011",
       "ApplicationName" => "Charter - Free version"
     }
+    options["ApplicationVersion"] = "Test version, Expires at #{EXPIRE_TIME}" if defined?(EXPIRE_TIME)
     NSApplication.sharedApplication.orderFrontStandardAboutPanelWithOptions(options)
   end
   

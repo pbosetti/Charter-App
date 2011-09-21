@@ -125,9 +125,8 @@
 - (void)renderInView:(NSView*)hostingView withTheme:(CPTTheme*)theme
 {
   [self killGraph];
-  
-  CGRect bounds = NSRectToCGRect([hostingView bounds]);
-  defaultLayerHostingView = [[CPTGraphHostingView alloc] initWithFrame:bounds];
+  //CGRect bounds = NSRectToCGRect([hostingView bounds]);
+  defaultLayerHostingView = [[CPTGraphHostingView alloc] initWithFrame:[hostingView bounds]];
   
   [defaultLayerHostingView setAutoresizesSubviews:YES];
   [defaultLayerHostingView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];

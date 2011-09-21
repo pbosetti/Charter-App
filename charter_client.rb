@@ -1,11 +1,12 @@
 #!/usr/bin/ruby
-# untitled.rb
+# charter_client.rb
 
 # Created by Paolo Bosetti on 2011-09-02.
 # Copyright (c) 2011 University of Trento. All rights reserved.
 
 require "socket"
 
+# Copy and paste this module in your script, or just require this file
 module Charter
   BASE_PORT = 2000
   
@@ -47,14 +48,25 @@ module Charter
   end
 end
 
-
+# Run this file to plot an example chart
 if __FILE__ == $0
+  # Instantiate a connection with the app
   ch = Charter::Client.new(1)
+  
+  # This clears the app buffer and starts a new plot
   ch.clear
+  
   200.times do |i|
-    #ch << [ [i/10.0, rand], [i/10.0+rand*0.01, rand] ]
+    # Add a point to each of the 3 series, with common abscissa
     ch << [i/10.0, Math::sin(i/10.0), 1.1*Math::cos(i/10.0), 0.7*Math::sin(i/10.0)+rand*0.05]
+    
+    # Alternatively, add a point to each series, also specifying different abscissa values
+    #ch << [ [i/10.0, rand], [i/10.0+rand*0.01, rand] ]
   end
+  
+  # Set the names for the series. Names array should have the same number of elements as the chart series
   ch.names %w|speed velocity acceleration|
+  
+  # Optionally, you could close the connection (i.e. remotely switch the "I O" rocker in the app toolbar to "O")
   #ch.close
 end

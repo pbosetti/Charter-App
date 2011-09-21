@@ -46,6 +46,7 @@
 - (IBAction)saveDataTable:(id)sender;
 - (IBAction)launchGitHub:(id)sender;
 - (IBAction)showSeriesInspector:(id)sender;
+- (IBAction)saveTemplate:(id)sender;
 
 @property (assign) IBOutlet NSUserDefaultsController *userDefaultsController;
 @property (assign) IBOutlet NSToolbarItem *startStopButton;

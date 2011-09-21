@@ -25,6 +25,7 @@
 		887802AE13EB1C4800547434 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887802AC13EB1C4800547434 /* MainMenu.xib */; };
 		887802B113EB1C4800547434 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 887802B013EB1C4800547434 /* rb_main.rb */; };
 		887802B313EB1C4800547434 /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 887802B213EB1C4800547434 /* AppDelegate.rb */; };
+		887DE7A91429C48200993B32 /* charter_client.rb in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88EF05A1141E627200A12AC9 /* charter_client.rb */; };
 		8880C1FA13FBBCAB00D65EAB /* TB_Colors.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F213FBBCAB00D65EAB /* TB_Colors.tiff */; };
 		8880C1FB13FBBCAB00D65EAB /* TB_Customize.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F313FBBCAB00D65EAB /* TB_Customize.tiff */; };
 		8880C1FC13FBBCAB00D65EAB /* TB_Find.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F413FBBCAB00D65EAB /* TB_Find.tiff */; };
@@ -58,6 +59,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		887DE7A81429C47600993B32 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Templates;
+			dstSubfolderSpec = 7;
+			files = (
+				887DE7A91429C48200993B32 /* charter_client.rb in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8899554C1410F6EB002A9D9A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,6 +314,7 @@
 				8878029413EB1C4800547434 /* Frameworks */,
 				8878029513EB1C4800547434 /* Resources */,
 				8899554C1410F6EB002A9D9A /* CopyFiles */,
+				887DE7A81429C47600993B32 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -511,9 +523,9 @@
 		887802B713EB1C4800547434 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -532,9 +544,9 @@
 		887802B813EB1C4800547434 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -553,14 +565,14 @@
 		887802BA13EB1C4800547434 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "";
 			};
 			name = Debug;
 		};
 		887802BB13EB1C4800547434 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "";
 			};
 			name = Release;
 		};
