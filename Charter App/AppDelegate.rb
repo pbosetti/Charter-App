@@ -12,7 +12,7 @@ BUNDLE = NSBundle.mainBundle
 VERSION = BUNDLE.infoDictionary["CFBundleShortVersionString"]
 BUILD = BUNDLE.infoDictionary["CFBundleVersion"]
 PORT = 2000
-#EXPIRE_TIME = Time.gm(2011,9,30)
+EXPIRE_TIME = Time.gm(2011,9,30)
 
 class AppDelegate
   attr_accessor :window, :startButton, :sourceList, :resetCounterButton
@@ -72,14 +72,23 @@ class AppDelegate
     savingDialog = NSSavePanel.savePanel
     case sender.tag
     when 0 # ruby
-      savingDialog.setAllowedFileTypes %w|rb|
+      template = "charter_client"
+      exts = %w|rb|
+      #savingDialog.setAllowedFileTypes exts
       savingDialog.setTitle "Saving Ruby template"
-      template = "charter_client.rb"
+      savingDialog.setNameFieldStringValue(template)
+    when 1 # C
+      template = "charter_client"
+      exts = %w|c h|
+      #savingDialog.setAllowedFileTypes exts
+      savingDialog.setTitle "Saving C template"
       savingDialog.setNameFieldStringValue(template)
     end  
     if savingDialog.runModal == NSOKButton then
-      puts "Saving " + savingDialog.URL.path
-      FileUtils::cp(NSBundle.mainBundle.resourcePath + "/Templates/" + template, savingDialog.URL.path)
+      exts.each do |x|
+        puts "Saving " + savingDialog.URL.path + ".#{x}"
+        FileUtils::cp(NSBundle.mainBundle.resourcePath + "/Templates/" + template + ".#{x}", savingDialog.URL.path + ".#{x}")
+      end
     end
   end
   

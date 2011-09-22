@@ -25,7 +25,11 @@
 		887802AE13EB1C4800547434 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887802AC13EB1C4800547434 /* MainMenu.xib */; };
 		887802B113EB1C4800547434 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 887802B013EB1C4800547434 /* rb_main.rb */; };
 		887802B313EB1C4800547434 /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 887802B213EB1C4800547434 /* AppDelegate.rb */; };
-		887DE7A91429C48200993B32 /* charter_client.rb in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88EF05A1141E627200A12AC9 /* charter_client.rb */; };
+		887DE7D0142B38E800993B32 /* charter_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 887DE7CC142B38E800993B32 /* charter_client.c */; };
+		887DE7D1142B38E800993B32 /* charter_client.rb in Resources */ = {isa = PBXBuildFile; fileRef = 887DE7CF142B38E800993B32 /* charter_client.rb */; };
+		887DE7D2142B392500993B32 /* charter_client.c in CopyFiles */ = {isa = PBXBuildFile; fileRef = 887DE7CC142B38E800993B32 /* charter_client.c */; };
+		887DE7D3142B392700993B32 /* charter_client.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 887DE7CD142B38E800993B32 /* charter_client.h */; };
+		887DE7D4142B392900993B32 /* charter_client.rb in CopyFiles */ = {isa = PBXBuildFile; fileRef = 887DE7CF142B38E800993B32 /* charter_client.rb */; };
 		8880C1FA13FBBCAB00D65EAB /* TB_Colors.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F213FBBCAB00D65EAB /* TB_Colors.tiff */; };
 		8880C1FB13FBBCAB00D65EAB /* TB_Customize.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F313FBBCAB00D65EAB /* TB_Customize.tiff */; };
 		8880C1FC13FBBCAB00D65EAB /* TB_Find.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F413FBBCAB00D65EAB /* TB_Find.tiff */; };
@@ -65,7 +69,9 @@
 			dstPath = Templates;
 			dstSubfolderSpec = 7;
 			files = (
-				887DE7A91429C48200993B32 /* charter_client.rb in CopyFiles */,
+				887DE7D2142B392500993B32 /* charter_client.c in CopyFiles */,
+				887DE7D3142B392700993B32 /* charter_client.h in CopyFiles */,
+				887DE7D4142B392900993B32 /* charter_client.rb in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +105,9 @@
 		887802AD13EB1C4800547434 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		887802B013EB1C4800547434 /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		887802B213EB1C4800547434 /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
+		887DE7CC142B38E800993B32 /* charter_client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = charter_client.c; sourceTree = "<group>"; };
+		887DE7CD142B38E800993B32 /* charter_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = charter_client.h; sourceTree = "<group>"; };
+		887DE7CF142B38E800993B32 /* charter_client.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = charter_client.rb; sourceTree = "<group>"; };
 		8880C1F213FBBCAB00D65EAB /* TB_Colors.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_Colors.tiff; sourceTree = "<group>"; };
 		8880C1F313FBBCAB00D65EAB /* TB_Customize.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_Customize.tiff; sourceTree = "<group>"; };
 		8880C1F413FBBCAB00D65EAB /* TB_Find.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_Find.tiff; sourceTree = "<group>"; };
@@ -122,7 +131,6 @@
 		88B8162E14250360003DCCC3 /* TB_Mask.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_Mask.tiff; sourceTree = "<group>"; };
 		88B8162F14250360003DCCC3 /* TB_View_Navigator.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_View_Navigator.tiff; sourceTree = "<group>"; };
 		88C99F1B1423636C004C5E26 /* Charter_defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Charter_defaults.plist; sourceTree = "<group>"; };
-		88EF05A1141E627200A12AC9 /* charter_client.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = charter_client.rb; sourceTree = SOURCE_ROOT; };
 		88EF05A3141E6E9900A12AC9 /* PBChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBChartDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -218,6 +226,7 @@
 		887802AB13EB1C4800547434 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				887DE7CA142B38E800993B32 /* ClientLibs */,
 				8880C1F113FBBCAB00D65EAB /* Icons */,
 				88C99F1B1423636C004C5E26 /* Charter_defaults.plist */,
 				887802AC13EB1C4800547434 /* MainMenu.xib */,
@@ -229,10 +238,35 @@
 		887802AF13EB1C4800547434 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				88EF05A1141E627200A12AC9 /* charter_client.rb */,
 				887802B013EB1C4800547434 /* rb_main.rb */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		887DE7CA142B38E800993B32 /* ClientLibs */ = {
+			isa = PBXGroup;
+			children = (
+				887DE7CB142B38E800993B32 /* C */,
+				887DE7CE142B38E800993B32 /* Ruby */,
+			);
+			path = ClientLibs;
+			sourceTree = SOURCE_ROOT;
+		};
+		887DE7CB142B38E800993B32 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				887DE7CC142B38E800993B32 /* charter_client.c */,
+				887DE7CD142B38E800993B32 /* charter_client.h */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		887DE7CE142B38E800993B32 /* Ruby */ = {
+			isa = PBXGroup;
+			children = (
+				887DE7CF142B38E800993B32 /* charter_client.rb */,
+			);
+			path = Ruby;
 			sourceTree = "<group>";
 		};
 		8880C1F113FBBCAB00D65EAB /* Icons */ = {
@@ -390,6 +424,7 @@
 				8812259514237D5E0060B15E /* Credits.rtf in Resources */,
 				88B8163014250360003DCCC3 /* TB_Mask.tiff in Resources */,
 				88B8163114250360003DCCC3 /* TB_View_Navigator.tiff in Resources */,
+				887DE7D1142B38E800993B32 /* charter_client.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +449,7 @@
 				8899556F1411004E002A9D9A /* PBPlotItem.m in Sources */,
 				8899557114110467002A9D9A /* PBPlotController.m in Sources */,
 				884C8930141A458B007B852D /* PBScatterPlot.m in Sources */,
+				887DE7D0142B38E800993B32 /* charter_client.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
