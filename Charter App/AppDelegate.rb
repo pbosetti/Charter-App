@@ -12,7 +12,7 @@ BUNDLE = NSBundle.mainBundle
 VERSION = BUNDLE.infoDictionary["CFBundleShortVersionString"]
 BUILD = BUNDLE.infoDictionary["CFBundleVersion"]
 PORT = 2000
-EXPIRE_TIME = Time.gm(2011,9,30)
+EXPIRE_TIME = Time.gm(2011,10,30)
 
 class AppDelegate
   attr_accessor :window, :startButton, :sourceList, :resetCounterButton
