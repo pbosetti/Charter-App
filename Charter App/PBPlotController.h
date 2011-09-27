@@ -22,7 +22,7 @@
   IBOutlet NSPopUpButton      *themePopUpButton;
   
   IBOutlet PBPlotView         *hostingView;
-  CPTLayerHostingView          *defaultLayerHostingView;
+  CPTGraphHostingView          *defaultLayerHostingView;
   NSString                    *currentThemeName;
   NSToolbarItem               *test;
   

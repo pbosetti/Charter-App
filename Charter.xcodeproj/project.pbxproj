@@ -38,9 +38,9 @@
 		8880C1FF13FBBCAB00D65EAB /* theater_close.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F713FBBCAB00D65EAB /* theater_close.tiff */; };
 		8880C20013FBBCAB00D65EAB /* theater_next.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F813FBBCAB00D65EAB /* theater_next.tiff */; };
 		8880C20113FBBCAB00D65EAB /* VU-Button-On.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F913FBBCAB00D65EAB /* VU-Button-On.tiff */; };
+		8881104F1431ECDA007A36F9 /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8897FC241431E8E700A6556F /* CorePlot.framework */; };
+		8897FC261431E90F00A6556F /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8897FC241431E8E700A6556F /* CorePlot.framework */; };
 		889955481410D1EB002A9D9A /* Terminal.icns in Resources */ = {isa = PBXBuildFile; fileRef = 889955471410D1EB002A9D9A /* Terminal.icns */; };
-		8899554B1410F5DD002A9D9A /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899554A1410F5DD002A9D9A /* CorePlot.framework */; };
-		8899554D1410F703002A9D9A /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8899554A1410F5DD002A9D9A /* CorePlot.framework */; };
 		889955691410FDD7002A9D9A /* PBPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889955671410FDD6002A9D9A /* PBPlotView.m */; };
 		8899556F1411004E002A9D9A /* PBPlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899556E1411004E002A9D9A /* PBPlotItem.m */; };
 		8899557114110467002A9D9A /* PBPlotController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899557014110467002A9D9A /* PBPlotController.m */; };
@@ -81,7 +81,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8899554D1410F703002A9D9A /* CorePlot.framework in CopyFiles */,
+				8881104F1431ECDA007A36F9 /* CorePlot.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,8 +116,8 @@
 		8880C1F713FBBCAB00D65EAB /* theater_close.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = theater_close.tiff; sourceTree = "<group>"; };
 		8880C1F813FBBCAB00D65EAB /* theater_next.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = theater_next.tiff; sourceTree = "<group>"; };
 		8880C1F913FBBCAB00D65EAB /* VU-Button-On.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "VU-Button-On.tiff"; sourceTree = "<group>"; };
+		8897FC241431E8E700A6556F /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = "Charter App/CorePlot.framework"; sourceTree = "<group>"; };
 		889955471410D1EB002A9D9A /* Terminal.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Terminal.icns; sourceTree = "<group>"; };
-		8899554A1410F5DD002A9D9A /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CorePlot.framework; sourceTree = "<group>"; };
 		889955641410FDD6002A9D9A /* PBPlotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBPlotController.h; sourceTree = "<group>"; };
 		889955661410FDD6002A9D9A /* PBPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBPlotView.h; sourceTree = "<group>"; };
 		889955671410FDD6002A9D9A /* PBPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBPlotView.m; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 			files = (
 				8878029C13EB1C4800547434 /* Cocoa.framework in Frameworks */,
 				88B739D713ECF6DF0098F1B5 /* MacRuby.framework in Frameworks */,
-				8899554B1410F5DD002A9D9A /* CorePlot.framework in Frameworks */,
+				8897FC261431E90F00A6556F /* CorePlot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +189,7 @@
 		8878029A13EB1C4800547434 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8899554A1410F5DD002A9D9A /* CorePlot.framework */,
+				8897FC241431E8E700A6556F /* CorePlot.framework */,
 				88B739D613ECF6DF0098F1B5 /* MacRuby.framework */,
 				8878029B13EB1C4800547434 /* Cocoa.framework */,
 			);
@@ -565,6 +565,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Charter App\"",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -586,6 +587,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Charter App\"",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

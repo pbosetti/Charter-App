@@ -36,7 +36,7 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
   [themePopUpButton addItemWithTitle:kThemeTableViewControllerNoTheme];
   
   for (Class c in [CPTTheme themeClasses]) {
-    [themePopUpButton addItemWithTitle:[c defaultName]];
+    [themePopUpButton addItemWithTitle:[c name]];
   }
   
 //  [themePopUpButton selectItemWithTitle:kThemeTableViewControllerDefaultTheme];

@@ -43,7 +43,8 @@
   [graphs addObject:graph];
   
   if (layerHostingView) {
-    layerHostingView.hostedLayer = graph;
+    //layerHostingView.hostedLayer = graph;
+    [self addGraph:graph toHostingView:nil];
   }
 }
 
@@ -58,7 +59,7 @@
   if (defaultLayerHostingView) {
     [defaultLayerHostingView removeFromSuperview];
     
-    defaultLayerHostingView.hostedLayer = nil;
+    //defaultLayerHostingView.hostedLayer = nil;
     //[defaultLayerHostingView release];
     defaultLayerHostingView = nil;
   }
