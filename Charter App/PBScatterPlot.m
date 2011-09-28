@@ -118,7 +118,7 @@
   
   
   // Rotate the labels by 45 degrees, just to show it can be done.
-  labelRotation = M_PI * 0.25;
+  //labelRotation = M_PI * 0.25;
   
   // Set axes
   //graph.axisSet.axes = [NSArray arrayWithObjects:x, y, y2, nil];
