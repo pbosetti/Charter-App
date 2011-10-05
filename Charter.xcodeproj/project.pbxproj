@@ -9,16 +9,8 @@
 /* Begin PBXBuildFile section */
 		8812259514237D5E0060B15E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8812259414237D5E0060B15E /* Credits.rtf */; };
 		884C8930141A458B007B852D /* PBScatterPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899556B1410FDEB002A9D9A /* PBScatterPlot.m */; };
-		8856630713EB409300009420 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887802A813EB1C4800547434 /* main.m */; };
-		8856630913EB409300009420 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8878029B13EB1C4800547434 /* Cocoa.framework */; };
-		8856630C13EB409300009420 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 887802A513EB1C4800547434 /* InfoPlist.strings */; };
-		8856630D13EB409300009420 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887802AC13EB1C4800547434 /* MainMenu.xib */; };
-		8856630E13EB409300009420 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 887802B013EB1C4800547434 /* rb_main.rb */; };
-		8856630F13EB409300009420 /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 887802B213EB1C4800547434 /* AppDelegate.rb */; };
-		8856631913EB415B00009420 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8856631813EB415B00009420 /* AppDelegate.m */; };
 		8858ED7D140E91FB00217104 /* Charter.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8858ED7C140E91FB00217104 /* Charter.icns */; };
 		886F67AA13EDC43B00E0BE5A /* PBChartSeries.rb in Resources */ = {isa = PBXBuildFile; fileRef = 886F67A913EDC43B00E0BE5A /* PBChartSeries.rb */; };
-		886F67AB13EDC43B00E0BE5A /* PBChartSeries.rb in Resources */ = {isa = PBXBuildFile; fileRef = 886F67A913EDC43B00E0BE5A /* PBChartSeries.rb */; };
 		8878029C13EB1C4800547434 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8878029B13EB1C4800547434 /* Cocoa.framework */; };
 		887802A713EB1C4800547434 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 887802A513EB1C4800547434 /* InfoPlist.strings */; };
 		887802A913EB1C4800547434 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887802A813EB1C4800547434 /* main.m */; };
@@ -46,7 +38,6 @@
 		8899557114110467002A9D9A /* PBPlotController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899557014110467002A9D9A /* PBPlotController.m */; };
 		889D8EE813F4AD86005B3E18 /* PBChartDataSource.rb in Resources */ = {isa = PBXBuildFile; fileRef = 889D8EE713F4AD86005B3E18 /* PBChartDataSource.rb */; };
 		88B739D713ECF6DF0098F1B5 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B739D613ECF6DF0098F1B5 /* MacRuby.framework */; };
-		88B739D813ECF6DF0098F1B5 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B739D613ECF6DF0098F1B5 /* MacRuby.framework */; };
 		88B8163014250360003DCCC3 /* TB_Mask.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 88B8162E14250360003DCCC3 /* TB_Mask.tiff */; };
 		88B8163114250360003DCCC3 /* TB_View_Navigator.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 88B8162F14250360003DCCC3 /* TB_View_Navigator.tiff */; };
 		88C99F1C1423636C004C5E26 /* Charter_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C99F1B1423636C004C5E26 /* Charter_defaults.plist */; };
@@ -90,10 +81,6 @@
 /* Begin PBXFileReference section */
 		8812259414237D5E0060B15E /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		884C892D141A3BF0007B852D /* PBScatterPlot.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = PBScatterPlot.rb; sourceTree = "<group>"; };
-		8856631313EB409300009420 /* Workaround.Workaround */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workaround.Workaround; sourceTree = BUILT_PRODUCTS_DIR; };
-		8856631613EB409300009420 /* Workaround-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workaround-Info.plist"; path = "Charter App/Workaround-Info.plist"; sourceTree = SOURCE_ROOT; };
-		8856631713EB415B00009420 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		8856631813EB415B00009420 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8858ED7C140E91FB00217104 /* Charter.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Charter.icns; sourceTree = "<group>"; };
 		886F67A913EDC43B00E0BE5A /* PBChartSeries.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = PBChartSeries.rb; sourceTree = "<group>"; };
 		8878029713EB1C4800547434 /* Charter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,15 +122,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8856630813EB409300009420 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8856630913EB409300009420 /* Cocoa.framework in Frameworks */,
-				88B739D813ECF6DF0098F1B5 /* MacRuby.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8878029413EB1C4800547434 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -157,16 +135,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8856631D13EB4AB800009420 /* Workaround */ = {
-			isa = PBXGroup;
-			children = (
-				8856631613EB409300009420 /* Workaround-Info.plist */,
-				8856631713EB415B00009420 /* AppDelegate.h */,
-				8856631813EB415B00009420 /* AppDelegate.m */,
-			);
-			name = Workaround;
-			sourceTree = "<group>";
-		};
 		8878028C13EB1C4800547434 = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				8878029713EB1C4800547434 /* Charter.app */,
-				8856631313EB409300009420 /* Workaround.Workaround */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,7 +166,6 @@
 		887802A213EB1C4800547434 /* Charter App */ = {
 			isa = PBXGroup;
 			children = (
-				8856631D13EB4AB800009420 /* Workaround */,
 				887802B213EB1C4800547434 /* AppDelegate.rb */,
 				886F67A913EDC43B00E0BE5A /* PBChartSeries.rb */,
 				889D8EE713F4AD86005B3E18 /* PBChartDataSource.rb */,
@@ -323,23 +289,6 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		8856630513EB409300009420 /* Workaround */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8856631013EB409300009420 /* Build configuration list for PBXNativeTarget "Workaround" */;
-			buildPhases = (
-				8856630613EB409300009420 /* Sources */,
-				8856630813EB409300009420 /* Frameworks */,
-				8856630B13EB409300009420 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Workaround;
-			productName = Testing;
-			productReference = 8856631313EB409300009420 /* Workaround.Workaround */;
-			productType = "com.apple.product-type.application";
-		};
 		8878029613EB1C4800547434 /* Charter */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 887802B613EB1C4800547434 /* Build configuration list for PBXNativeTarget "Charter" */;
@@ -365,7 +314,7 @@
 		8878028E13EB1C4800547434 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Dipartimento di Ingegneria Meccanica e Strutturale";
 			};
 			buildConfigurationList = 8878029113EB1C4800547434 /* Build configuration list for PBXProject "Charter" */;
@@ -382,24 +331,11 @@
 			targets = (
 				8878029613EB1C4800547434 /* Charter */,
 				8878029F13EB1C4800547434 /* Deployment */,
-				8856630513EB409300009420 /* Workaround */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8856630B13EB409300009420 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8856630C13EB409300009420 /* InfoPlist.strings in Resources */,
-				8856630D13EB409300009420 /* MainMenu.xib in Resources */,
-				8856630E13EB409300009420 /* rb_main.rb in Resources */,
-				8856630F13EB409300009420 /* AppDelegate.rb in Resources */,
-				886F67AB13EDC43B00E0BE5A /* PBChartSeries.rb in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8878029513EB1C4800547434 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -431,15 +367,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8856630613EB409300009420 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8856630713EB409300009420 /* main.m in Sources */,
-				8856631913EB415B00009420 /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8878029313EB1C4800547434 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,32 +410,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8856631113EB409300009420 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = x86_64;
-				GCC_ENABLE_OBJC_GC = required;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Testing/Testing-Prefix.pch";
-				INFOPLIST_FILE = "Workaround-info.plist";
-				PRODUCT_NAME = Workaround;
-				WRAPPER_EXTENSION = Workaround;
-			};
-			name = Debug;
-		};
-		8856631213EB409300009420 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = x86_64;
-				GCC_ENABLE_OBJC_GC = required;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Testing/Testing-Prefix.pch";
-				INFOPLIST_FILE = "Workaround-info.plist";
-				PRODUCT_NAME = Workaround;
-				WRAPPER_EXTENSION = Workaround;
-			};
-			name = Release;
-		};
 		887802B413EB1C4800547434 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -561,7 +462,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -583,7 +484,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -617,15 +518,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8856631013EB409300009420 /* Build configuration list for PBXNativeTarget "Workaround" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8856631113EB409300009420 /* Debug */,
-				8856631213EB409300009420 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		8878029113EB1C4800547434 /* Build configuration list for PBXProject "Charter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

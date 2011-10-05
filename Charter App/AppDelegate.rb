@@ -12,7 +12,7 @@ BUNDLE = NSBundle.mainBundle
 VERSION = BUNDLE.infoDictionary["CFBundleShortVersionString"]
 BUILD = BUNDLE.infoDictionary["CFBundleVersion"]
 PORT = 2000
-EXPIRE_TIME = Time.gm(2011,10,30)
+#EXPIRE_TIME = Time.gm(2011,10,30)
 
 class AppDelegate
   attr_accessor :window, :startButton, :sourceList, :resetCounterButton
@@ -61,6 +61,7 @@ class AppDelegate
   def saveDataTable(sender)
     savingDialog = NSSavePanel.savePanel
     savingDialog.setAllowedFileTypes %w|txt dat|
+    savingDialog.setTitle "Saving data table"
     if savingDialog.runModal == NSOKButton then
       names = []
       @seriesArray.each {|s| names << s.name }
@@ -99,7 +100,7 @@ class AppDelegate
   def showAboutBox(sender)
     options = {
       "Copyright" => "© Paolo Bosetti, 2011",
-      "ApplicationName" => "Charter - Free version"
+      "ApplicationName" => "Charter"
     }
     options["ApplicationVersion"] = "Test version, Expires at #{EXPIRE_TIME}" if defined?(EXPIRE_TIME)
     NSApplication.sharedApplication.orderFrontStandardAboutPanelWithOptions(options)

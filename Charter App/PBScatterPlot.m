@@ -118,7 +118,7 @@
   
   
   // Rotate the labels by 45 degrees, just to show it can be done.
-  labelRotation = M_PI * 0.25;
+  //labelRotation = M_PI * 0.25;
   
   // Set axes
   //graph.axisSet.axes = [NSArray arrayWithObjects:x, y, y2, nil];
@@ -176,6 +176,12 @@
 
 - (void)rescaleAll
 {
+  if (symbolTextAnnotation) {
+    [graph.plotAreaFrame.plotArea removeAnnotation:symbolTextAnnotation];
+      //[symbolTextAnnotation release];
+    symbolTextAnnotation = nil;
+  }
+  
   // Auto scale the plot space to fit the plot data
   // Extend the y range by 10% for neatness
   [plotSpace scaleToFitPlots:[graph allPlots]];
