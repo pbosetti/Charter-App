@@ -29,6 +29,7 @@
   id                          plotItem;
   IBOutlet id                 chartDataSource;
   IBOutlet id                 chartSeries;
+  IBOutlet NSForm *chartRanges;
 }
 
 @property (nonatomic, retain) PBPlotItem *plotItem;

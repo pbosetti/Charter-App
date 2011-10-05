@@ -9,7 +9,7 @@
 #import "PBScatterPlot.h"
 
 @implementation PBScatterPlot
-@synthesize graph;
+@synthesize graph, plotSpace;
 
 + (void)load
 {
@@ -189,13 +189,19 @@
   CPTPlotRange *yRange = plotSpace.yRange;
   [xRange expandRangeByFactor:CPTDecimalFromDouble([DEFAULTS doubleForKey:@"zoomExpansion"])];
   [yRange expandRangeByFactor:CPTDecimalFromDouble([DEFAULTS doubleForKey:@"zoomExpansion"])];
+  [self rescaleToXRange:xRange yRange:yRange];
+}
+
+- (void)rescaleToXRange:(CPTPlotRange *)xRange yRange:(CPTPlotRange *)yRange
+{
   plotSpace.yRange = yRange;
   plotSpace.xRange = xRange;
-  
+  /*
   CGFloat length = xRange.lengthDouble;
   xShift = length;// - 3.0;
   length = yRange.lengthDouble;
   yShift = length;// - 2.0;
+   */
   [self reloadData];
 }
 

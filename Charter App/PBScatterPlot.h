@@ -26,6 +26,7 @@
 }
 
 @property (nonatomic, assign) CPTGraph *graph;
+@property (nonatomic, assign) CPTXYPlotSpace *plotSpace;
 
 - (void)setAxisTitle:(NSString *)axisTitle atOffset:(float)offset forCoordinate:(CPTCoordinate)coordinate;
 - (void)rescaleAll;
@@ -33,4 +34,5 @@
 - (void)createCharts;
 - (void)setupGrid;
 - (void)setPropertiesForChart:(PBChartSeries *)serie;
+- (void)rescaleToXRange:(CPTPlotRange *)xRange yRange:(CPTPlotRange *)yRange;
 @end
