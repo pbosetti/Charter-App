@@ -11,7 +11,7 @@
 
 @interface PBScatterPlot : PBPlotItem < CPTPlotSpaceDelegate,CPTPlotDataSource,CPTScatterPlotDelegate>
 {
-  CPTLayerAnnotation  *symbolTextAnnotation;
+  CPTPlotSpaceAnnotation  *symbolTextAnnotation;
   
   CGFloat             xShift;
   CGFloat             yShift;

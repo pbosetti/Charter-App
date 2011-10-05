@@ -176,6 +176,12 @@
 
 - (void)rescaleAll
 {
+  if (symbolTextAnnotation) {
+    [graph.plotAreaFrame.plotArea removeAnnotation:symbolTextAnnotation];
+      //[symbolTextAnnotation release];
+    symbolTextAnnotation = nil;
+  }
+  
   // Auto scale the plot space to fit the plot data
   // Extend the y range by 10% for neatness
   [plotSpace scaleToFitPlots:[graph allPlots]];
