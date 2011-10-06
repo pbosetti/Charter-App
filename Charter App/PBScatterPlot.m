@@ -143,7 +143,6 @@
     [graph addPlot:dataSourceLinePlot];
 
     [self setPropertiesForChart:serie];
-    [self rescaleAll];
   }
 }
 
@@ -202,7 +201,6 @@
   length = yRange.lengthDouble;
   yShift = length;// - 2.0;
    */
-  [self reloadData];
 }
 
 #pragma mark -
@@ -277,7 +275,7 @@
   
   // Setup a style for the annotation
   CPTMutableTextStyle *hitAnnotationTextStyle = [CPTMutableTextStyle textStyle];
-  hitAnnotationTextStyle.color = [CPTColor whiteColor];
+  hitAnnotationTextStyle.color = [CPTColor blackColor];
   hitAnnotationTextStyle.fontSize = 16.0f;
   hitAnnotationTextStyle.fontName = @"Helvetica-Bold";
   

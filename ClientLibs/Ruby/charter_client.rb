@@ -59,7 +59,6 @@ if __FILE__ == $0
   200.times do |i|
     # Add a point to each of the 3 series, with common abscissa
     ch << [i/10.0, Math::sin(i/10.0), 1.1*Math::cos(i/10.0), 0.7*Math::sin(i/10.0)+rand*0.05]
-    
     # Alternatively, add a point to each series, also specifying different abscissa values
     #ch << [ [i/10.0, rand], [i/10.0+rand*0.01, rand] ]
   end

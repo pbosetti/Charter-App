@@ -47,6 +47,11 @@ class AppDelegate
     @guideVisible = true
     self.setUpdatePeriod(@defaults.integerForKey("updatePeriod") || 10)
     @userDefaultsController.setInitialValues(NSDictionary.dictionaryWithContentsOfFile(NSBundle.mainBundle.resourcePath + "/Charter_defaults.plist"))
+    4.times do |i|
+      v = @defaults["chartRanges"][i]
+      @plotController.chartRanges.cellAtIndex(i).setDoubleValue(v)
+    end
+    plotController.rescaleToLimits(self)
     if defined?(EXPIRE_TIME) and Time.now > EXPIRE_TIME
       puts "Running test version, will expire on #{EXPIRE_TIME}"
       NSAlert.alertWithMessageText("Expired!", 
@@ -248,7 +253,7 @@ class AppDelegate
               self.performSelectorOnMainThread "resetDataTable", withObject:nil, waitUntilDone:true
             end
             @dataTable.performSelectorOnMainThread "reloadData", withObject:nil, waitUntilDone:true
-            if counter >= @updatePeriod.to_i and self.updatePeriod != "never" then
+            if counter >= @updatePeriod.to_i and self.updatePeriod != "never"  then
               counter = 0
               plotController.performSelectorOnMainThread "rescaleAll:", withObject:self, waitUntilDone:true
             end
@@ -295,7 +300,12 @@ class AppDelegate
     
   # DELEGATES for application
   def applicationWillTerminate(aNotification)
-    @defaults.setInteger(@updatePeriod.to_i, forKey:"updatePeriod")                
+    @defaults.setInteger(@updatePeriod.to_i, forKey:"updatePeriod")
+    ranges = []
+    4.times do |i|
+      ranges << @plotController.chartRanges.cellAtIndex(i).doubleValue
+    end
+    @defaults.setObject(ranges, forKey:"chartRanges")
   end
     
   def applicationShouldTerminateAfterLastWindowClosed(sender)

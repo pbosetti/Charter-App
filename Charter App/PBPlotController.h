@@ -27,6 +27,7 @@
   NSToolbarItem               *test;
   
   id                          plotItem;
+  IBOutlet NSButton *autoscale;
   IBOutlet id                 chartDataSource;
   IBOutlet id                 chartSeries;
   IBOutlet NSForm *chartRanges;
@@ -36,6 +37,8 @@
 @property (nonatomic, copy) NSString *currentThemeName;
 @property (assign) IBOutlet id chartDataSource;
 @property (assign) IBOutlet id chartSeries;
+@property (assign) IBOutlet NSButton *autoscale;
+@property (assign) IBOutlet NSForm *chartRanges;
 
 - (IBAction)themeSelectionDidChange:(id)sender;
 - (IBAction)test:(id)sender;
