@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880DA2651443441800FE5060 /* charter_client.py in Resources */ = {isa = PBXBuildFile; fileRef = 880DA2641443441800FE5060 /* charter_client.py */; };
+		880DA2671443445100FE5060 /* charter_client.py in CopyFiles */ = {isa = PBXBuildFile; fileRef = 880DA2641443441800FE5060 /* charter_client.py */; };
 		8812259514237D5E0060B15E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8812259414237D5E0060B15E /* Credits.rtf */; };
 		884C8930141A458B007B852D /* PBScatterPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899556B1410FDEB002A9D9A /* PBScatterPlot.m */; };
 		8858ED7D140E91FB00217104 /* Charter.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8858ED7C140E91FB00217104 /* Charter.icns */; };
@@ -63,6 +65,7 @@
 				887DE7D2142B392500993B32 /* charter_client.c in CopyFiles */,
 				887DE7D3142B392700993B32 /* charter_client.h in CopyFiles */,
 				887DE7D4142B392900993B32 /* charter_client.rb in CopyFiles */,
+				880DA2671443445100FE5060 /* charter_client.py in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		880DA2641443441800FE5060 /* charter_client.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = charter_client.py; sourceTree = "<group>"; };
+		880DA2711443525000FE5060 /* Charter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Charter.entitlements; sourceTree = "<group>"; };
 		8812259414237D5E0060B15E /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		884C892D141A3BF0007B852D /* PBScatterPlot.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = PBScatterPlot.rb; sourceTree = "<group>"; };
 		8858ED7C140E91FB00217104 /* Charter.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Charter.icns; sourceTree = "<group>"; };
@@ -135,9 +140,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		880DA2631443441800FE5060 /* Python */ = {
+			isa = PBXGroup;
+			children = (
+				880DA2641443441800FE5060 /* charter_client.py */,
+			);
+			path = Python;
+			sourceTree = "<group>";
+		};
 		8878028C13EB1C4800547434 = {
 			isa = PBXGroup;
 			children = (
+				880DA2711443525000FE5060 /* Charter.entitlements */,
 				8858ED7C140E91FB00217104 /* Charter.icns */,
 				887802A213EB1C4800547434 /* Charter App */,
 				8878029A13EB1C4800547434 /* Frameworks */,
@@ -212,6 +226,7 @@
 		887DE7CA142B38E800993B32 /* ClientLibs */ = {
 			isa = PBXGroup;
 			children = (
+				880DA2631443441800FE5060 /* Python */,
 				887DE7CB142B38E800993B32 /* C */,
 				887DE7CE142B38E800993B32 /* Ruby */,
 			);
@@ -361,6 +376,7 @@
 				88B8163014250360003DCCC3 /* TB_Mask.tiff in Resources */,
 				88B8163114250360003DCCC3 /* TB_View_Navigator.tiff in Resources */,
 				887DE7D1142B38E800993B32 /* charter_client.rb in Resources */,
+				880DA2651443441800FE5060 /* charter_client.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,8 +477,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 8;
+				CODE_SIGN_ENTITLEMENTS = Charter.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer: Paolo Bosetti (7F9JTM3VV4)";
+				CURRENT_PROJECT_VERSION = 9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -473,6 +490,7 @@
 				INFOPLIST_FILE = "Charter App/Charter-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Charter;
+				PROVISIONING_PROFILE = "456F7E86-8EFF-41A8-8808-6D4C2098A20C";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -482,8 +500,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 8;
+				CODE_SIGN_ENTITLEMENTS = Charter.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer: Paolo Bosetti (7F9JTM3VV4)";
+				CURRENT_PROJECT_VERSION = 9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -494,6 +513,7 @@
 				INFOPLIST_FILE = "Charter App/Charter-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Charter;
+				PROVISIONING_PROFILE = "456F7E86-8EFF-41A8-8808-6D4C2098A20C";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};

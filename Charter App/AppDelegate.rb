@@ -20,15 +20,14 @@ class AppDelegate
   attr_accessor :seriesInfoPanel
   attr_accessor :hitCount, :port
   attr_accessor :seriesArray, :seriesArrayController, :seriesTableView
-  attr_accessor :listening, :statusBarMessage, :startStopButton
+  attr_accessor :statusBarMessage, :startStopButton
   attr_accessor :chartHostView
   attr_accessor :plotController
   attr_accessor :userDefaultsController
   attr_writer :updatePeriod
-  attr_reader :allowSavingData
+  attr_reader :listening, :allowSavingData
   
   def initialize
-    @listening = 0
     @listeningSocket = UDPSocket.open
     @defaults = NSUserDefaults.standardUserDefaults
     @defaults.registerDefaults(NSDictionary.dictionaryWithContentsOfFile(NSBundle.mainBundle.resourcePath + "/Charter_defaults.plist"))
@@ -52,6 +51,7 @@ class AppDelegate
       @plotController.chartRanges.cellAtIndex(i).setDoubleValue(v)
     end
     plotController.rescaleToLimits(self)
+    setListening 0
     if defined?(EXPIRE_TIME) and Time.now > EXPIRE_TIME
       puts "Running test version, will expire on #{EXPIRE_TIME}"
       NSAlert.alertWithMessageText("Expired!", 
@@ -61,6 +61,11 @@ class AppDelegate
                                  informativeTextWithFormat: "Testing period has expired, sorry").runModal
       exit
     end
+  end
+  
+  def setListening(val)
+    @listening = val
+    self.startListening(self)
   end
   
   def saveDataTable(sender)
@@ -82,14 +87,18 @@ class AppDelegate
       exts = %w|rb|
       #savingDialog.setAllowedFileTypes exts
       savingDialog.setTitle "Saving Ruby template"
-      savingDialog.setNameFieldStringValue(template)
     when 1 # C
       template = "charter_client"
       exts = %w|c h|
       #savingDialog.setAllowedFileTypes exts
       savingDialog.setTitle "Saving C template"
-      savingDialog.setNameFieldStringValue(template)
+    when 2 # python
+      template = "charter_client"
+      exts = %w|py|
+      #savingDialog.setAllowedFileTypes exts
+      savingDialog.setTitle "Saving Python template"
     end  
+    savingDialog.setNameFieldStringValue(template)
     if savingDialog.runModal == NSOKButton then
       exts.each do |x|
         puts "Saving " + savingDialog.URL.path + ".#{x}"
@@ -167,21 +176,6 @@ class AppDelegate
     @plotController.createCharts
   end
   
-  def test(sender)
-    if true
-      p chartDataSource.data
-    else
-    NSAnimationContext.currentContext.setDuration 1.0
-    if @guideVisible then
-      textGuideView.animator.removeFromSuperview
-      @guideVisible = false
-    else
-      mainView.animator.addSubview textGuideView
-      @guideVisible = true
-    end
-      end
-  end
-  
   def buttonClick(sender)
     puts "ButtonClick"
     options = {
@@ -221,7 +215,6 @@ class AppDelegate
     if listening == 1 and not @listeningThread.alive? then
       startStopButton.setLabel "Running"
       setStatusBarMessage "Started listening on port #{@port.to_i}"
-      setListening 1
       @listeningSocket = UDPSocket.open
       @listeningSocket.bind(nil, PORT + @port.to_i)
       @listeningThread = Thread.start(@listeningSocket) do |svr|
@@ -235,7 +228,7 @@ class AppDelegate
           case raw
           when /CLOSE/i
             running = false
-            self.performSelectorOnMainThread "setStatusBarMessage:", withObject:"Idle", waitUntilDone:false
+            #self.performSelectorOnMainThread "setStatusBarMessage:", withObject:"Idle", waitUntilDone:false
           when /CLEAR/i
             @chartDataSource.reset
             self.performSelectorOnMainThread "setStatusBarMessage:", withObject:"Remotely cleared", waitUntilDone:true
@@ -262,7 +255,6 @@ class AppDelegate
           end
         end
         svr.close
-        setListening 0
       end
     elsif listening == 0
       startStopButton.setLabel "Idle"
