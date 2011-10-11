@@ -230,7 +230,8 @@
 				887DE7CB142B38E800993B32 /* C */,
 				887DE7CE142B38E800993B32 /* Ruby */,
 			);
-			path = ClientLibs;
+			name = ClientLibs;
+			path = CharterClient;
 			sourceTree = SOURCE_ROOT;
 		};
 		887DE7CB142B38E800993B32 /* C */ = {
