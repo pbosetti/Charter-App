@@ -1,0 +1,3 @@
+[submodule "CharterClient"]
+	path = CharterClient
+	url = git@github.com:pbosetti/Charter.git

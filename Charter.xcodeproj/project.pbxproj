@@ -97,8 +97,8 @@
 		887802AD13EB1C4800547434 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		887802B013EB1C4800547434 /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		887802B213EB1C4800547434 /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
-		887DE7CC142B38E800993B32 /* charter_client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = charter_client.c; sourceTree = "<group>"; };
-		887DE7CD142B38E800993B32 /* charter_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = charter_client.h; sourceTree = "<group>"; };
+		887DE7CC142B38E800993B32 /* charter_client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = charter_client.c; path = charter_client/charter_client/charter_client.c; sourceTree = "<group>"; };
+		887DE7CD142B38E800993B32 /* charter_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = charter_client.h; path = charter_client/charter_client/charter_client.h; sourceTree = "<group>"; };
 		887DE7CF142B38E800993B32 /* charter_client.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = charter_client.rb; sourceTree = "<group>"; };
 		8880C1F213FBBCAB00D65EAB /* TB_Colors.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_Colors.tiff; sourceTree = "<group>"; };
 		8880C1F313FBBCAB00D65EAB /* TB_Customize.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_Customize.tiff; sourceTree = "<group>"; };
@@ -230,7 +230,8 @@
 				887DE7CB142B38E800993B32 /* C */,
 				887DE7CE142B38E800993B32 /* Ruby */,
 			);
-			path = ClientLibs;
+			name = ClientLibs;
+			path = CharterClient;
 			sourceTree = SOURCE_ROOT;
 		};
 		887DE7CB142B38E800993B32 /* C */ = {
