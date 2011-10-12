@@ -18,7 +18,7 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
 @synthesize currentThemeName;
 @synthesize chartDataSource;
 @synthesize chartSeries;
-
+@synthesize autoscale, chartRanges;
 
 - (id)init
 {
@@ -117,7 +117,34 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
 }
 
 - (IBAction)rescaleAll:(id)sender {
-  [plotItem rescaleAll];
+  [plotItem reloadData];
+  if (autoscale.state == NSOnState || [sender isKindOfClass:[NSToolbarItem class]])
+    [plotItem rescaleAll];
+  double xMin, yMin, xMax, yMax;
+  xMin = [(PBScatterPlot *)plotItem plotSpace].xRange.minLimitDouble;
+  xMax = [(PBScatterPlot *)plotItem plotSpace].xRange.maxLimitDouble;
+  yMin = [(PBScatterPlot *)plotItem plotSpace].yRange.minLimitDouble;
+  yMax = [(PBScatterPlot *)plotItem plotSpace].yRange.maxLimitDouble;
+  [[chartRanges cellAtIndex:0] setDoubleValue:xMin];
+  [[chartRanges cellAtIndex:1] setDoubleValue:xMax];
+  [[chartRanges cellAtIndex:2] setDoubleValue:yMin];
+  [[chartRanges cellAtIndex:3] setDoubleValue:yMax];
+}
+
+- (IBAction)rescaleToLimits:(id)sender
+{
+  double xStart = [[chartRanges cellAtIndex:0] doubleValue];
+  double xLength = [[chartRanges cellAtIndex:1] doubleValue] - xStart;
+  if (xLength <= 0)
+    [[chartRanges cellAtIndex:1] setDoubleValue:xStart + 1.0];
+  double yStart = [[chartRanges cellAtIndex:2] doubleValue];
+  double yLength = [[chartRanges cellAtIndex:3] doubleValue] - yStart;
+  if (yLength <= 0)
+    [[chartRanges cellAtIndex:3] setDoubleValue:yStart + 1.0];
+  [(PBScatterPlot *)plotItem plotSpace].xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(xStart)
+                                                                              length:CPTDecimalFromDouble(xLength)];
+  [(PBScatterPlot *)plotItem plotSpace].yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(yStart)
+                                                                              length:CPTDecimalFromDouble(yLength)];
 }
 
 - (IBAction)setupGrid:(id)sender
@@ -168,13 +195,6 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
     
     [plotItem renderInView:hostingView withTheme:[self currentTheme]];
   }
-}
-
-#pragma mark -
-#pragma mark Popover Delegate
-- (void)popoverWillClose:(NSNotification *)notification
-{
-  [plotItem setupCharts];
 }
 
 @end

@@ -15,8 +15,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8878029613EB1C4800547434"
                BuildableName = "Charter.app"
-               BlueprintName = "Charter"
-               ReferencedContainer = "container:Charter.xcodeproj">
+               BlueprintName = "Charter">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,13 +27,24 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8878029613EB1C4800547434"
+            BuildableName = "Charter.app"
+            BlueprintName = "Charter"
+            ReferencedContainer = "container:Charter.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug">
+      buildConfiguration = "Debug"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -51,7 +61,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release">
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"

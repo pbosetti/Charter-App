@@ -9,7 +9,7 @@
 #import "PBScatterPlot.h"
 
 @implementation PBScatterPlot
-@synthesize graph;
+@synthesize graph, plotSpace;
 
 + (void)load
 {
@@ -118,7 +118,7 @@
   
   
   // Rotate the labels by 45 degrees, just to show it can be done.
-  labelRotation = M_PI * 0.25;
+  //labelRotation = M_PI * 0.25;
   
   // Set axes
   //graph.axisSet.axes = [NSArray arrayWithObjects:x, y, y2, nil];
@@ -143,7 +143,6 @@
     [graph addPlot:dataSourceLinePlot];
 
     [self setPropertiesForChart:serie];
-    [self rescaleAll];
   }
 }
 
@@ -176,6 +175,12 @@
 
 - (void)rescaleAll
 {
+  if (symbolTextAnnotation) {
+    [graph.plotAreaFrame.plotArea removeAnnotation:symbolTextAnnotation];
+      //[symbolTextAnnotation release];
+    symbolTextAnnotation = nil;
+  }
+  
   // Auto scale the plot space to fit the plot data
   // Extend the y range by 10% for neatness
   [plotSpace scaleToFitPlots:[graph allPlots]];
@@ -183,14 +188,19 @@
   CPTPlotRange *yRange = plotSpace.yRange;
   [xRange expandRangeByFactor:CPTDecimalFromDouble([DEFAULTS doubleForKey:@"zoomExpansion"])];
   [yRange expandRangeByFactor:CPTDecimalFromDouble([DEFAULTS doubleForKey:@"zoomExpansion"])];
+  [self rescaleToXRange:xRange yRange:yRange];
+}
+
+- (void)rescaleToXRange:(CPTPlotRange *)xRange yRange:(CPTPlotRange *)yRange
+{
   plotSpace.yRange = yRange;
   plotSpace.xRange = xRange;
-  
+  /*
   CGFloat length = xRange.lengthDouble;
   xShift = length;// - 3.0;
   length = yRange.lengthDouble;
   yShift = length;// - 2.0;
-  [self reloadData];
+   */
 }
 
 #pragma mark -
@@ -265,7 +275,7 @@
   
   // Setup a style for the annotation
   CPTMutableTextStyle *hitAnnotationTextStyle = [CPTMutableTextStyle textStyle];
-  hitAnnotationTextStyle.color = [CPTColor whiteColor];
+  hitAnnotationTextStyle.color = [CPTColor blackColor];
   hitAnnotationTextStyle.fontSize = 16.0f;
   hitAnnotationTextStyle.fontName = @"Helvetica-Bold";
   
