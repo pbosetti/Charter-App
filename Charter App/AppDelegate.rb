@@ -240,6 +240,9 @@ class AppDelegate
                 s.name = names[i]
               end
             end
+          when /^LABELS\s(.*)/i
+            labels = $1.split
+            plotController.performSelectorOnMainThread "setupAxesLabels:", withObject:labels, waitUntilDone:true
           when /^[m|s]\s*/
             counter += 1
             if @chartDataSource.addRecordFromString(raw) == :reload then

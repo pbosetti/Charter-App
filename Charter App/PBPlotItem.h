@@ -24,6 +24,7 @@ typedef NSRect CGNSRect;
   
   NSMutableArray      *graphs;
   NSString            *title;
+  NSMutableArray      *axesLabels;
   PBChartDataSource   *chartDataSource;
   NSArrayController   *chartSeries;
 }
@@ -33,6 +34,7 @@ typedef NSRect CGNSRect;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) id chartDataSource;
 @property (nonatomic, retain) id chartSeries;
+@property (nonatomic, retain) NSMutableArray *axesLabels;
 
 + (void)registerPlotItem:(id)item;
 

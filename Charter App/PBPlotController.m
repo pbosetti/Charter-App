@@ -118,7 +118,7 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
 
 - (IBAction)rescaleAll:(id)sender {
   [plotItem reloadData];
-  if (autoscale.state == NSOnState || [sender isKindOfClass:[NSToolbarItem class]])
+  if (autoscale.state == NSOnState || [sender isKindOfClass:[NSToolbarItem class]] || [sender isKindOfClass:[NSMenuItem class]])
     [plotItem rescaleAll];
   double xMin, yMin, xMax, yMax;
   xMin = [(PBScatterPlot *)plotItem plotSpace].xRange.minLimitDouble;
@@ -129,6 +129,12 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
   [[chartRanges cellAtIndex:1] setDoubleValue:xMax];
   [[chartRanges cellAtIndex:2] setDoubleValue:yMin];
   [[chartRanges cellAtIndex:3] setDoubleValue:yMax];
+}
+
+- (void)setupAxesLabels:(NSMutableArray *)labels
+{
+  [plotItem setValue:labels forKey:@"axesLabels"];
+  [plotItem setupAxesLabels];
 }
 
 - (IBAction)rescaleToLimits:(id)sender

@@ -51,4 +51,5 @@
 - (CPTTheme *)currentTheme;
 - (void)reloadData;
 - (void)createCharts;
+- (void)setupAxesLabels:(NSMutableArray *)labels;
 @end

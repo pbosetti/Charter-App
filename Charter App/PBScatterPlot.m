@@ -76,9 +76,14 @@
                                                               length:CPTDecimalFromDouble(11.0)];
   plotSpace.xRange = defaultRange;
   plotSpace.yRange = defaultRange;
+  
+  [self setupAxesLabels];
+}
 
-  [self setAxisTitle:@"X Axis" atOffset:1.0f forCoordinate:CPTCoordinateX];  
-  [self setAxisTitle:@"Y Axis" atOffset:1.0f forCoordinate:CPTCoordinateY];
+- (void)setupAxesLabels
+{
+  [self setAxisTitle:[axesLabels objectAtIndex:0] atOffset:1.0f forCoordinate:CPTCoordinateX];  
+  [self setAxisTitle:[axesLabels objectAtIndex:1] atOffset:1.0f forCoordinate:CPTCoordinateY];
 }
 
 - (void)setupGrid
@@ -180,6 +185,9 @@
       //[symbolTextAnnotation release];
     symbolTextAnnotation = nil;
   }
+  // Update axes labels
+  [self setAxisTitle:[axesLabels objectAtIndex:0] atOffset:1.0f forCoordinate:CPTCoordinateX];  
+  [self setAxisTitle:[axesLabels objectAtIndex:1] atOffset:1.0f forCoordinate:CPTCoordinateY];
   
   // Auto scale the plot space to fit the plot data
   // Extend the y range by 10% for neatness
@@ -223,7 +231,6 @@
 
 -(CPTPlotRange *)plotSpace:(CPTPlotSpace *)space willChangePlotRangeTo:(CPTPlotRange *)newRange forCoordinate:(CPTCoordinate)coordinate
 {
-  NSString *axisTitle;
   float offset;
   // Impose a limit on how far user can scroll in x
   if (coordinate == CPTCoordinateX) {
@@ -233,14 +240,12 @@
     //    [changedRange shiftLocationToFitInRange:maxRange];
     newRange = changedRange;
     
-    axisTitle = @"X Axis";
     offset = ([newRange maxLimitDouble] - [newRange lengthDouble] / 10.0f);
   }
   else {
-    axisTitle = @"Y Axis";
     offset = ([newRange maxLimitDouble] - [newRange lengthDouble] / 10.0f);
   }
-  [self setAxisTitle:axisTitle atOffset:offset forCoordinate:coordinate];
+  [self setAxisTitle:[axesLabels objectAtIndex:coordinate] atOffset:offset forCoordinate:coordinate];
   return newRange;
 }
 

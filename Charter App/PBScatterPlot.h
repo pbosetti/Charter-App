@@ -33,6 +33,7 @@
 - (void)setupCharts;
 - (void)createCharts;
 - (void)setupGrid;
+- (void)setupAxesLabels;
 - (void)setPropertiesForChart:(PBChartSeries *)serie;
 - (void)rescaleToXRange:(CPTPlotRange *)xRange yRange:(CPTPlotRange *)yRange;
 @end

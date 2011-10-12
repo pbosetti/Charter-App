@@ -15,6 +15,7 @@
 @synthesize title;
 @synthesize chartDataSource;
 @synthesize chartSeries;
+@synthesize axesLabels;
 
 + (void)registerPlotItem:(id)item
 {  
@@ -34,7 +35,7 @@
   if ((self = [super init])) {
     graphs = [[NSMutableArray alloc] init];
   }
-  
+  [axesLabels initWithObjects:@"X Axis", @"Y Axis", @"Z Axis", nil];
   return self;
 }
 
