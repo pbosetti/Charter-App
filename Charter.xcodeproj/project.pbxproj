@@ -43,6 +43,9 @@
 		88B8163014250360003DCCC3 /* TB_Mask.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 88B8162E14250360003DCCC3 /* TB_Mask.tiff */; };
 		88B8163114250360003DCCC3 /* TB_View_Navigator.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 88B8162F14250360003DCCC3 /* TB_View_Navigator.tiff */; };
 		88C99F1C1423636C004C5E26 /* Charter_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C99F1B1423636C004C5E26 /* Charter_defaults.plist */; };
+		88EB68D314488A23005E2FE5 /* charter_client.class.php in Resources */ = {isa = PBXBuildFile; fileRef = 88EB68D114488A23005E2FE5 /* charter_client.class.php */; };
+		88EB68D414488A23005E2FE5 /* example.php in Resources */ = {isa = PBXBuildFile; fileRef = 88EB68D214488A23005E2FE5 /* example.php */; };
+		88EB68D614488B4D005E2FE5 /* charter_client.class.php in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88EB68D114488A23005E2FE5 /* charter_client.class.php */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,7 @@
 				887DE7D3142B392700993B32 /* charter_client.h in CopyFiles */,
 				887DE7D4142B392900993B32 /* charter_client.rb in CopyFiles */,
 				880DA2671443445100FE5060 /* charter_client.py in CopyFiles */,
+				88EB68D614488B4D005E2FE5 /* charter_client.class.php in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +127,8 @@
 		88B8162E14250360003DCCC3 /* TB_Mask.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_Mask.tiff; sourceTree = "<group>"; };
 		88B8162F14250360003DCCC3 /* TB_View_Navigator.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_View_Navigator.tiff; sourceTree = "<group>"; };
 		88C99F1B1423636C004C5E26 /* Charter_defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Charter_defaults.plist; sourceTree = "<group>"; };
+		88EB68D114488A23005E2FE5 /* charter_client.class.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = charter_client.class.php; sourceTree = "<group>"; };
+		88EB68D214488A23005E2FE5 /* example.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = example.php; sourceTree = "<group>"; };
 		88EF05A3141E6E9900A12AC9 /* PBChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBChartDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,6 +232,7 @@
 		887DE7CA142B38E800993B32 /* ClientLibs */ = {
 			isa = PBXGroup;
 			children = (
+				88EB68D014488A23005E2FE5 /* php */,
 				880DA2631443441800FE5060 /* Python */,
 				887DE7CB142B38E800993B32 /* C */,
 				887DE7CE142B38E800993B32 /* Ruby */,
@@ -283,6 +290,15 @@
 				8899556B1410FDEB002A9D9A /* PBScatterPlot.m */,
 			);
 			name = Chart;
+			sourceTree = "<group>";
+		};
+		88EB68D014488A23005E2FE5 /* php */ = {
+			isa = PBXGroup;
+			children = (
+				88EB68D114488A23005E2FE5 /* charter_client.class.php */,
+				88EB68D214488A23005E2FE5 /* example.php */,
+			);
+			path = php;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +394,8 @@
 				88B8163114250360003DCCC3 /* TB_View_Navigator.tiff in Resources */,
 				887DE7D1142B38E800993B32 /* charter_client.rb in Resources */,
 				880DA2651443441800FE5060 /* charter_client.py in Resources */,
+				88EB68D314488A23005E2FE5 /* charter_client.class.php in Resources */,
+				88EB68D414488A23005E2FE5 /* example.php in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
