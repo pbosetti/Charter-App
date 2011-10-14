@@ -496,8 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_ENTITLEMENTS = Charter.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer: Paolo Bosetti (7F9JTM3VV4)";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				CURRENT_PROJECT_VERSION = 9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -509,7 +508,7 @@
 				INFOPLIST_FILE = "Charter App/Charter-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Charter;
-				PROVISIONING_PROFILE = "456F7E86-8EFF-41A8-8808-6D4C2098A20C";
+				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -519,8 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_ENTITLEMENTS = Charter.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer: Paolo Bosetti (7F9JTM3VV4)";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				CURRENT_PROJECT_VERSION = 9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -532,7 +530,7 @@
 				INFOPLIST_FILE = "Charter App/Charter-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Charter;
-				PROVISIONING_PROFILE = "456F7E86-8EFF-41A8-8808-6D4C2098A20C";
+				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
