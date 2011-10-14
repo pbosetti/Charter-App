@@ -97,6 +97,11 @@ class AppDelegate
       exts = %w|py|
       #savingDialog.setAllowedFileTypes exts
       savingDialog.setTitle "Saving Python template"
+    when 3 # php
+      template = "charter_client.class"
+      exts = %w|php|
+      #savingDialog.setAllowedFileTypes exts
+      savingDialog.setTitle "Saving php template"
     end  
     savingDialog.setNameFieldStringValue(template)
     if savingDialog.runModal == NSOKButton then
