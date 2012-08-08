@@ -221,14 +221,19 @@ class AppDelegate
       startStopButton.setLabel "Running"
       setStatusBarMessage "Started listening on port #{@port.to_i}"
       @listeningSocket = UDPSocket.open
-      @listeningSocket.bind(nil, PORT + @port.to_i)
+      if @defaults.integerForKey("networkOperations") == 1
+        listen_on = ""
+      else
+        listen_on = "127.0.0.1"
+      end
+      @listeningSocket.bind(listen_on, PORT + @port.to_i)
       @listeningThread = Thread.start(@listeningSocket) do |svr|
         running = true
         badMsg = 0
         counter = 0
         while running do
           raw = svr.recvfrom(2048)
-          next if @defaults.integerForKey("networkOperations") == 1 and raw[1][2] != '127.0.0.1'
+          #next if @defaults.integerForKey("networkOperations") == 1 and raw[1][2] != '127.0.0.1'
           raw = raw[0].chomp
           case raw
           when /CLOSE/i
@@ -248,7 +253,7 @@ class AppDelegate
           when /^LABELS\s(.*)/i
             labels = $1.split
             plotController.performSelectorOnMainThread "setupAxesLabels:", withObject:labels, waitUntilDone:true
-          when /^[m|s]\s*/
+          when /^[m|s]\s*/i
             counter += 1
             if @chartDataSource.addRecordFromString(raw) == :reload then
               self.performSelectorOnMainThread "resetDataTable", withObject:nil, waitUntilDone:true
