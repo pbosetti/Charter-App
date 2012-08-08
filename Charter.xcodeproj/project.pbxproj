@@ -123,7 +123,7 @@
 		8899556E1411004E002A9D9A /* PBPlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBPlotItem.m; sourceTree = "<group>"; };
 		8899557014110467002A9D9A /* PBPlotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBPlotController.m; sourceTree = "<group>"; };
 		889D8EE713F4AD86005B3E18 /* PBChartDataSource.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = PBChartDataSource.rb; sourceTree = "<group>"; };
-		88B739D613ECF6DF0098F1B5 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = ../Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
+		88B739D613ECF6DF0098F1B5 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = /Library/Frameworks/MacRuby.framework; sourceTree = "<absolute>"; };
 		88B8162E14250360003DCCC3 /* TB_Mask.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_Mask.tiff; sourceTree = "<group>"; };
 		88B8162F14250360003DCCC3 /* TB_View_Navigator.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TB_View_Navigator.tiff; sourceTree = "<group>"; };
 		88C99F1B1423636C004C5E26 /* Charter_defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Charter_defaults.plist; sourceTree = "<group>"; };
@@ -346,7 +346,7 @@
 		8878028E13EB1C4800547434 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Dipartimento di Ingegneria Meccanica e Strutturale";
 			};
 			buildConfigurationList = 8878029113EB1C4800547434 /* Build configuration list for PBXProject "Charter" */;
@@ -450,6 +450,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -467,6 +468,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				STRIP_STYLE = debugging;
 			};
@@ -477,6 +479,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -487,6 +490,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				STRIP_STYLE = debugging;
 			};
@@ -496,11 +500,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Charter.entitlements;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					/Library/Frameworks,
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -518,11 +525,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Charter.entitlements;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					/Library/Frameworks,
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -540,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "";
+				COMBINE_HIDPI_IMAGES = YES;
 			};
 			name = Debug;
 		};
@@ -547,6 +558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "";
+				COMBINE_HIDPI_IMAGES = YES;
 			};
 			name = Release;
 		};
