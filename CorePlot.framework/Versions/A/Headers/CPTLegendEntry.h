@@ -1,29 +1,23 @@
+#import "CPTDefinitions.h"
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
 @class CPTPlot;
 @class CPTTextStyle;
 
-@interface CPTLegendEntry : NSObject {   
+@interface CPTLegendEntry : NSObject<NSCoding> {
 	@private
-	__weak CPTPlot *plot;
+	__cpt_weak CPTPlot *plot;
 	NSUInteger index;
 	NSUInteger row;
 	NSUInteger column;
-	NSString *title;
 	CPTTextStyle *textStyle;
-	CGSize titleSize;
 }
 
 /// @name Plot Info
 /// @{
-@property (nonatomic, readwrite, assign) __weak CPTPlot *plot;
+@property (nonatomic, readwrite, cpt_weak_property) __cpt_weak CPTPlot *plot;
 @property (nonatomic, readwrite, assign) NSUInteger index;
-///	@}
-
-/// @name Text
-@property (nonatomic, readwrite, retain) NSString *title;
-/// @{
 ///	@}
 
 /// @name Formatting
@@ -40,7 +34,7 @@
 
 /// @name Drawing
 /// @{
--(void)drawTitleInRect:(CGRect)rect inContext:(CGContextRef)context;
+-(void)drawTitleInRect:(CGRect)rect inContext:(CGContextRef)context scale:(CGFloat)scale;
 ///	@}
 
 @end

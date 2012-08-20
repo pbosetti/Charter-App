@@ -1,30 +1,30 @@
+#import "CPTDefinitions.h"
+#import "CPTResponder.h"
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
-#import "CPTLineStyle.h"
-#import "CPTResponder.h"
-#import "CPTPlatformSpecificDefines.h"
 
-@protocol CPTLayoutManager;
 @class CPTGraph;
+@class CPTShadow;
 
-@interface CPTLayer : CALayer <CPTResponder> {
+@interface CPTLayer : CALayer<CPTResponder> {
 	@private
 	CGFloat paddingLeft;
 	CGFloat paddingTop;
 	CGFloat paddingRight;
 	CGFloat paddingBottom;
 	BOOL masksToBorder;
-	id <CPTLayoutManager> layoutManager;
+	CPTShadow *shadow;
 	BOOL renderingRecursively;
 	BOOL useFastRendering;
-    __weak CPTGraph *graph;
+	__cpt_weak CPTGraph *graph;
 	CGPathRef outerBorderPath;
 	CGPathRef innerBorderPath;
+	id<NSCopying, NSCoding, NSObject> identifier;
 }
 
 /// @name Graph
 /// @{
-@property (nonatomic, readwrite, assign) __weak CPTGraph *graph;
+@property (nonatomic, readwrite, cpt_weak_property) __cpt_weak CPTGraph *graph;
 /// @}
 
 /// @name Padding
@@ -37,7 +37,9 @@
 
 /// @name Drawing
 /// @{
+@property (readwrite, assign) CGFloat contentsScale;
 @property (nonatomic, readonly, assign) BOOL useFastRendering;
+@property (nonatomic, readwrite, copy) CPTShadow *shadow;
 ///	@}
 
 /// @name Masking
@@ -49,9 +51,13 @@
 @property (nonatomic, readonly, assign) CGPathRef sublayerMaskingPath;
 ///	@}
 
+/// @name Identification
+/// @{
+@property (nonatomic, readwrite, copy) id<NSCopying, NSCoding, NSObject> identifier;
+///	@}
+
 /// @name Layout
 /// @{
-@property (readwrite, retain) id <CPTLayoutManager> layoutManager;
 @property (readonly) NSSet *sublayersExcludedFromAutomaticLayout;
 ///	@}
 
@@ -76,8 +82,28 @@
 
 /// @name Layout
 /// @{
-+(CGFloat)defaultZPosition;
 -(void)pixelAlign;
+-(void)sublayerMarginLeft:(CGFloat *)left top:(CGFloat *)top right:(CGFloat *)right bottom:(CGFloat *)bottom;
+///	@}
+
+/// @name Information
+/// @{
+-(void)logLayers;
 ///	@}
 
 @end
+
+///	@cond
+// for MacOS 10.6 SDK compatibility
+#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
+#else
+#if MAC_OS_X_VERSION_MAX_ALLOWED < 1070
+@interface CALayer(CPTExtensions)
+
+@property (readwrite) CGFloat contentsScale;
+
+@end
+#endif
+#endif
+
+///	@endcond

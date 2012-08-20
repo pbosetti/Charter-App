@@ -1,37 +1,32 @@
-
 #import <Foundation/Foundation.h>
+
+///	@ingroup themeNames
+/// @{
+extern NSString *const kCPTDarkGradientTheme;
+extern NSString *const kCPTPlainBlackTheme;
+extern NSString *const kCPTPlainWhiteTheme;
+extern NSString *const kCPTSlateTheme;
+extern NSString *const kCPTStocksTheme;
+/// @}
 
 @class CPTGraph;
 @class CPTPlotAreaFrame;
 @class CPTAxisSet;
 @class CPTMutableTextStyle;
 
-/// @file
-
-/// @name Theme Names
-/// @{
-extern NSString * const kCPTDarkGradientTheme;
-extern NSString * const kCPTPlainWhiteTheme;
-extern NSString * const kCPTPlainBlackTheme;
-extern NSString * const kCPTSlateTheme;
-extern NSString * const kCPTStocksTheme;
-/// @}
-
-@interface CPTTheme : NSObject {
+@interface CPTTheme : NSObject<NSCoding> {
 	@private
-	NSString *name;
 	Class graphClass;
 }
 
-@property (nonatomic, readwrite, copy) NSString *name;
 @property (nonatomic, readwrite, retain) Class graphClass;
 
 /// @name Theme Management
 /// @{
++(void)registerTheme:(Class)themeClass;
 +(NSArray *)themeClasses;
 +(CPTTheme *)themeNamed:(NSString *)theme;
-+(void)addTheme:(CPTTheme *)newTheme;
-+(NSString *)defaultName;
++(NSString *)name;
 /// @}
 
 /// @name Theme Usage
@@ -52,7 +47,7 @@ extern NSString * const kCPTStocksTheme;
 
 -(void)applyThemeToBackground:(CPTGraph *)graph;
 -(void)applyThemeToPlotArea:(CPTPlotAreaFrame *)plotAreaFrame;
--(void)applyThemeToAxisSet:(CPTAxisSet *)axisSet; 
+-(void)applyThemeToAxisSet:(CPTAxisSet *)axisSet;
 /// @}
 
 @end

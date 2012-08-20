@@ -36,7 +36,7 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
   [themePopUpButton addItemWithTitle:kThemeTableViewControllerNoTheme];
   
   for (Class c in [CPTTheme themeClasses]) {
-    [themePopUpButton addItemWithTitle:[c defaultName]];
+    [themePopUpButton addItemWithTitle:[c name]];
   }
   
 //  [themePopUpButton selectItemWithTitle:kThemeTableViewControllerDefaultTheme];
@@ -147,9 +147,9 @@ const float CP_SPLIT_VIEW_MIN_LHS_WIDTH = 150.0f;
   double yLength = [[chartRanges cellAtIndex:3] doubleValue] - yStart;
   if (yLength <= 0)
     [[chartRanges cellAtIndex:3] setDoubleValue:yStart + 1.0];
-  [(PBScatterPlot *)plotItem plotSpace].xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(xStart)
+  [(PBScatterPlot *)plotItem plotSpace].xRange = [CPTMutablePlotRange plotRangeWithLocation:CPTDecimalFromDouble(xStart)
                                                                               length:CPTDecimalFromDouble(xLength)];
-  [(PBScatterPlot *)plotItem plotSpace].yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(yStart)
+  [(PBScatterPlot *)plotItem plotSpace].yRange = [CPTMutablePlotRange plotRangeWithLocation:CPTDecimalFromDouble(yStart)
                                                                               length:CPTDecimalFromDouble(yLength)];
 }
 

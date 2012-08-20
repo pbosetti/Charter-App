@@ -76,7 +76,7 @@
                                                               length:CPTDecimalFromDouble(11.0)];
   plotSpace.xRange = defaultRange;
   plotSpace.yRange = defaultRange;
-  
+  [defaultRange autorelease];
   [self setupAxesLabels];
 }
 
@@ -169,6 +169,7 @@
   
   // Add plot symbols
   CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
+  [lineStyle release];
   symbolLineStyle.lineColor = [CPTColor blackColor];
   CPTPlotSymbol *plotSymbol = [CPTPlotSymbol performSelector:NSSelectorFromString([symbols objectAtIndex:[serie.symbol integerValue]])];
   plotSymbol.fill = [CPTFill fillWithColor:[self cptColorFromNSColor:serie.color]];
@@ -192,8 +193,12 @@
   // Auto scale the plot space to fit the plot data
   // Extend the y range by 10% for neatness
   [plotSpace scaleToFitPlots:[graph allPlots]];
-  CPTPlotRange *xRange = plotSpace.xRange;
-  CPTPlotRange *yRange = plotSpace.yRange;
+  CPTMutablePlotRange *xRange = [CPTMutablePlotRange plotRangeWithLocation:plotSpace.xRange.minLimit
+                                                                    length:plotSpace.xRange.length];
+  CPTMutablePlotRange *yRange = [CPTMutablePlotRange plotRangeWithLocation:plotSpace.yRange.minLimit
+                                                                    length:plotSpace.yRange.length];
+  //xRange.length *= [DEFAULTS doubleForKey:@"zoomExpansion"];
+  
   [xRange expandRangeByFactor:CPTDecimalFromDouble([DEFAULTS doubleForKey:@"zoomExpansion"])];
   [yRange expandRangeByFactor:CPTDecimalFromDouble([DEFAULTS doubleForKey:@"zoomExpansion"])];
   [self rescaleToXRange:xRange yRange:yRange];
@@ -232,6 +237,7 @@
 -(CPTPlotRange *)plotSpace:(CPTPlotSpace *)space willChangePlotRangeTo:(CPTPlotRange *)newRange forCoordinate:(CPTCoordinate)coordinate
 {
   float offset;
+  /*
   // Impose a limit on how far user can scroll in x
   if (coordinate == CPTCoordinateX) {
     //    CPTPlotRange *maxRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1.0f) length:CPTDecimalFromFloat(6.0f)];
@@ -242,12 +248,12 @@
     
     offset = ([newRange maxLimitDouble] - [newRange lengthDouble] / 10.0f);
   }
-  else {
-    offset = ([newRange maxLimitDouble] - [newRange lengthDouble] / 10.0f);
-  }
+  */
+  offset = ([newRange maxLimitDouble] - [newRange lengthDouble] / 10.0f);
   [self setAxisTitle:[axesLabels objectAtIndex:coordinate] atOffset:offset forCoordinate:coordinate];
   return newRange;
 }
+
 
 - (void)setAxisTitle:(NSString *)axisTitle atOffset:(float)offset forCoordinate:(CPTCoordinate)coordinate
 {
@@ -267,7 +273,7 @@
 
 #pragma mark -
 #pragma mark CPScatterPlot delegate method
-
+/*
 -(void)scatterPlot:(CPTScatterPlot *)plot plotSymbolWasSelectedAtRecordIndex:(NSUInteger)index
 {
   graph = [graphs objectAtIndex:0];
@@ -295,12 +301,13 @@
   [formatter setMaximumFractionDigits:2];
   NSString *yString = [formatter stringFromNumber:y];
   
+  [formatter release];
   // Now add the annotation to the plot area
-  CPTTextLayer *textLayer = [[CPTTextLayer alloc] initWithText:yString style:hitAnnotationTextStyle]; // autorelease];
+  CPTTextLayer *textLayer = [[[CPTTextLayer alloc] initWithText:yString style:hitAnnotationTextStyle] autorelease];
   symbolTextAnnotation = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:graph.defaultPlotSpace anchorPlotPoint:anchorPoint];
   symbolTextAnnotation.contentLayer = textLayer;
   symbolTextAnnotation.displacement = CGPointMake(0.0f, 20.0f);
   [graph.plotAreaFrame.plotArea addAnnotation:symbolTextAnnotation];    
 }
-
+*/
 @end

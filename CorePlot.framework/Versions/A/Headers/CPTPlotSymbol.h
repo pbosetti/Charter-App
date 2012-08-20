@@ -1,30 +1,34 @@
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
 /// @file
 
 @class CPTLineStyle;
 @class CPTFill;
+@class CPTShadow;
 
-/**	@brief Plot symbol types.
+/**
+ *	@brief Plot symbol types.
  **/
 typedef enum _CPTPlotSymbolType {
-    CPTPlotSymbolTypeNone,		///< No symbol.
-    CPTPlotSymbolTypeRectangle,	///< Rectangle symbol.
-    CPTPlotSymbolTypeEllipse,	///< Elliptical symbol.
-    CPTPlotSymbolTypeDiamond,	///< Diamond symbol.
-	CPTPlotSymbolTypeTriangle,	///< Triangle symbol.
-	CPTPlotSymbolTypeStar,		///< 5-point star symbol.
-	CPTPlotSymbolTypePentagon,	///< Pentagon symbol.
-	CPTPlotSymbolTypeHexagon,	///< Hexagon symbol.
-	CPTPlotSymbolTypeCross,		///< X symbol.
-	CPTPlotSymbolTypePlus,		///< Plus symbol.
-	CPTPlotSymbolTypeDash,		///< Dash symbol.
-	CPTPlotSymbolTypeSnow,		///< Snowflake symbol.
-	CPTPlotSymbolTypeCustom		///< Custom symbol.
-} CPTPlotSymbolType;
+	CPTPlotSymbolTypeNone,      ///< No symbol.
+	CPTPlotSymbolTypeRectangle, ///< Rectangle symbol.
+	CPTPlotSymbolTypeEllipse,   ///< Elliptical symbol.
+	CPTPlotSymbolTypeDiamond,   ///< Diamond symbol.
+	CPTPlotSymbolTypeTriangle,  ///< Triangle symbol.
+	CPTPlotSymbolTypeStar,      ///< 5-point star symbol.
+	CPTPlotSymbolTypePentagon,  ///< Pentagon symbol.
+	CPTPlotSymbolTypeHexagon,   ///< Hexagon symbol.
+	CPTPlotSymbolTypeCross,     ///< X symbol.
+	CPTPlotSymbolTypePlus,      ///< Plus symbol.
+	CPTPlotSymbolTypeDash,      ///< Dash symbol.
+	CPTPlotSymbolTypeSnow,      ///< Snowflake symbol.
+	CPTPlotSymbolTypeCustom     ///< Custom symbol.
+}
+CPTPlotSymbolType;
 
-@interface CPTPlotSymbol : NSObject <NSCopying> {
-@private
+@interface CPTPlotSymbol : NSObject<NSCoding, NSCopying> {
+	@private
 	CGSize size;
 	CPTPlotSymbolType symbolType;
 	CPTLineStyle *lineStyle;
@@ -33,12 +37,14 @@ typedef enum _CPTPlotSymbolType {
 	CGPathRef customSymbolPath;
 	BOOL usesEvenOddClipRule;
 	CGLayerRef cachedLayer;
+	CPTShadow *shadow;
 }
 
 @property (nonatomic, readwrite, assign) CGSize size;
 @property (nonatomic, readwrite, assign) CPTPlotSymbolType symbolType;
 @property (nonatomic, readwrite, retain) CPTLineStyle *lineStyle;
 @property (nonatomic, readwrite, retain) CPTFill *fill;
+@property (nonatomic, readwrite, copy) CPTShadow *shadow;
 @property (nonatomic, readwrite, assign) CGPathRef customSymbolPath;
 @property (nonatomic, readwrite, assign) BOOL usesEvenOddClipRule;
 
@@ -61,7 +67,7 @@ typedef enum _CPTPlotSymbolType {
 
 /// @name Drawing
 /// @{
--(void)renderInContext:(CGContextRef)theContext atPoint:(CGPoint)center scale:(CGFloat)scale;
+-(void)renderInContext:(CGContextRef)theContext atPoint:(CGPoint)center scale:(CGFloat)scale alignToPixels:(BOOL)alignToPixels;
 -(void)renderAsVectorInContext:(CGContextRef)theContext atPoint:(CGPoint)center scale:(CGFloat)scale;
 ///	@}
 

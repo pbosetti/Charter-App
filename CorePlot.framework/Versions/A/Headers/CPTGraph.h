@@ -10,49 +10,54 @@
 @class CPTPlotAreaFrame;
 @class CPTPlotSpace;
 @class CPTTheme;
-@class CPTMutableTextStyle;
+@class CPTTextStyle;
 @class CPTLayerAnnotation;
 
-/**
- *  @brief Graph notifications
- **/ 
-extern NSString * const CPTGraphNeedsRedrawNotification;
+/// @name Graph
+/// @{
+
+/**	@brief Notification sent by various objects to tell the graph it should redraw itself.
+ *	@ingroup notification
+ **/
+extern NSString *const CPTGraphNeedsRedrawNotification;
+
+///	@}
 
 /**
  *	@brief Enumeration of graph layers.
  **/
 typedef enum _CPTGraphLayerType {
-	CPTGraphLayerTypeMinorGridLines,		///< Minor grid lines.
-	CPTGraphLayerTypeMajorGridLines,		///< Major grid lines.
-	CPTGraphLayerTypeAxisLines,			///< Axis lines.
-	CPTGraphLayerTypePlots,				///< Plots.
-	CPTGraphLayerTypeAxisLabels,			///< Axis labels.
-	CPTGraphLayerTypeAxisTitles			///< Axis titles.
-} CPTGraphLayerType;
+	CPTGraphLayerTypeMinorGridLines, ///< Minor grid lines.
+	CPTGraphLayerTypeMajorGridLines, ///< Major grid lines.
+	CPTGraphLayerTypeAxisLines,      ///< Axis lines.
+	CPTGraphLayerTypePlots,          ///< Plots.
+	CPTGraphLayerTypeAxisLabels,     ///< Axis labels.
+	CPTGraphLayerTypeAxisTitles      ///< Axis titles.
+}
+CPTGraphLayerType;
 
 #pragma mark -
 
 @interface CPTGraph : CPTBorderedLayer {
 	@private
-    CPTPlotAreaFrame *plotAreaFrame;
-    NSMutableArray *plots;
-    NSMutableArray *plotSpaces;
-    NSString *title;
-    CPTMutableTextStyle *titleTextStyle;
-    CPTRectAnchor titlePlotAreaFrameAnchor;
-    CGPoint titleDisplacement;
-    CPTLayerAnnotation *titleAnnotation;
+	CPTPlotAreaFrame *plotAreaFrame;
+	NSMutableArray *plots;
+	NSMutableArray *plotSpaces;
+	NSString *title;
+	CPTTextStyle *titleTextStyle;
+	CPTRectAnchor titlePlotAreaFrameAnchor;
+	CGPoint titleDisplacement;
+	CPTLayerAnnotation *titleAnnotation;
 	CPTLegend *legend;
 	CPTLayerAnnotation *legendAnnotation;
 	CPTRectAnchor legendAnchor;
 	CGPoint legendDisplacement;
-
 }
 
 /// @name Title
 /// @{
 @property (nonatomic, readwrite, copy) NSString *title;
-@property (nonatomic, readwrite, copy) CPTMutableTextStyle *titleTextStyle;
+@property (nonatomic, readwrite, copy) CPTTextStyle *titleTextStyle;
 @property (nonatomic, readwrite, assign) CGPoint titleDisplacement;
 @property (nonatomic, readwrite, assign) CPTRectAnchor titlePlotAreaFrameAnchor;
 ///	@}
@@ -82,15 +87,15 @@ typedef enum _CPTGraphLayerType {
 /// @{
 -(NSArray *)allPlots;
 -(CPTPlot *)plotAtIndex:(NSUInteger)index;
--(CPTPlot *)plotWithIdentifier:(id <NSCopying>)identifier;
+-(CPTPlot *)plotWithIdentifier:(id<NSCopying>)identifier;
 ///	@}
 
 /// @name Adding and Removing Plots
 /// @{
--(void)addPlot:(CPTPlot *)plot; 
+-(void)addPlot:(CPTPlot *)plot;
 -(void)addPlot:(CPTPlot *)plot toPlotSpace:(CPTPlotSpace *)space;
 -(void)removePlot:(CPTPlot *)plot;
--(void)removePlotWithIdentifier:(id <NSCopying>)identifier;
+-(void)removePlotWithIdentifier:(id<NSCopying>)identifier;
 -(void)insertPlot:(CPTPlot *)plot atIndex:(NSUInteger)index;
 -(void)insertPlot:(CPTPlot *)plot atIndex:(NSUInteger)index intoPlotSpace:(CPTPlotSpace *)space;
 ///	@}
@@ -99,12 +104,12 @@ typedef enum _CPTGraphLayerType {
 /// @{
 -(NSArray *)allPlotSpaces;
 -(CPTPlotSpace *)plotSpaceAtIndex:(NSUInteger)index;
--(CPTPlotSpace *)plotSpaceWithIdentifier:(id <NSCopying>)identifier;
+-(CPTPlotSpace *)plotSpaceWithIdentifier:(id<NSCopying>)identifier;
 ///	@}
 
 /// @name Adding and Removing Plot Spaces
 /// @{
--(void)addPlotSpace:(CPTPlotSpace *)space; 
+-(void)addPlotSpace:(CPTPlotSpace *)space;
 -(void)removePlotSpace:(CPTPlotSpace *)plotSpace;
 ///	@}
 

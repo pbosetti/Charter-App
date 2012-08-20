@@ -32,6 +32,7 @@
 		8880C1FF13FBBCAB00D65EAB /* theater_close.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F713FBBCAB00D65EAB /* theater_close.tiff */; };
 		8880C20013FBBCAB00D65EAB /* theater_next.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F813FBBCAB00D65EAB /* theater_next.tiff */; };
 		8880C20113FBBCAB00D65EAB /* VU-Button-On.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8880C1F913FBBCAB00D65EAB /* VU-Button-On.tiff */; };
+		8897AC5815E262A900037B89 /* MacRuby.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88B739D613ECF6DF0098F1B5 /* MacRuby.framework */; };
 		889955481410D1EB002A9D9A /* Terminal.icns in Resources */ = {isa = PBXBuildFile; fileRef = 889955471410D1EB002A9D9A /* Terminal.icns */; };
 		8899554B1410F5DD002A9D9A /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899554A1410F5DD002A9D9A /* CorePlot.framework */; };
 		8899554D1410F703002A9D9A /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8899554A1410F5DD002A9D9A /* CorePlot.framework */; };
@@ -80,6 +81,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				8899554D1410F703002A9D9A /* CorePlot.framework in CopyFiles */,
+				8897AC5815E262A900037B89 /* MacRuby.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +91,6 @@
 		880DA2641443441800FE5060 /* charter_client.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = charter_client.py; sourceTree = "<group>"; };
 		880DA2711443525000FE5060 /* Charter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Charter.entitlements; sourceTree = "<group>"; };
 		8812259414237D5E0060B15E /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
-		884C892D141A3BF0007B852D /* PBScatterPlot.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = PBScatterPlot.rb; sourceTree = "<group>"; };
 		8858ED7C140E91FB00217104 /* Charter.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Charter.icns; sourceTree = "<group>"; };
 		886F67A913EDC43B00E0BE5A /* PBChartSeries.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = PBChartSeries.rb; sourceTree = "<group>"; };
 		8878029713EB1C4800547434 /* Charter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,7 +190,6 @@
 				887802B213EB1C4800547434 /* AppDelegate.rb */,
 				886F67A913EDC43B00E0BE5A /* PBChartSeries.rb */,
 				889D8EE713F4AD86005B3E18 /* PBChartDataSource.rb */,
-				884C892D141A3BF0007B852D /* PBScatterPlot.rb */,
 				88995572141104DC002A9D9A /* Chart */,
 				887802AB13EB1C4800547434 /* Resources */,
 				887802AF13EB1C4800547434 /* Other Sources */,
@@ -513,7 +513,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Charter App/Charter-Prefix.pch";
 				INFOPLIST_FILE = "Charter App/Charter-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Charter;
 				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -538,7 +538,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Charter App/Charter-Prefix.pch";
 				INFOPLIST_FILE = "Charter App/Charter-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Charter;
 				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";

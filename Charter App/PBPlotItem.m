@@ -25,7 +25,7 @@
     // There's no autorelease pool here yet...
     PBPlotItem *plotItem = [[itemClass alloc] init];
     if (plotItem) {
-      //[plotItem release];
+      [plotItem autorelease];
     }
   }
 }
@@ -34,8 +34,8 @@
 {
   if ((self = [super init])) {
     graphs = [[NSMutableArray alloc] init];
+    [axesLabels initWithObjects:@"X Axis", @"Y Axis", @"Z Axis", nil];
   }
-  [axesLabels initWithObjects:@"X Axis", @"Y Axis", @"Z Axis", nil];
   return self;
 }
 
@@ -44,7 +44,7 @@
   [graphs addObject:graph];
   
   if (layerHostingView) {
-    layerHostingView.hostedLayer = graph;
+    layerHostingView.hostedGraph = graph;
   }
 }
 
@@ -59,7 +59,7 @@
   if (defaultLayerHostingView) {
     [defaultLayerHostingView removeFromSuperview];
     
-    defaultLayerHostingView.hostedLayer = nil;
+    defaultLayerHostingView.hostedGraph = nil;
     //[defaultLayerHostingView release];
     defaultLayerHostingView = nil;
   }

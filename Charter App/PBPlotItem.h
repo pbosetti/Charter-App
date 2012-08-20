@@ -10,7 +10,7 @@
 #import <CorePlot/CorePlot.h>
 #import "PBChartDataSource.h"
 
-typedef CPTLayerHostingView CPTGraphHostingView;
+//typedef CPTLayerHostingView CPTGraphHostingView;
 
 typedef NSRect CGNSRect;
 
@@ -29,7 +29,7 @@ typedef NSRect CGNSRect;
   NSArrayController   *chartSeries;
 }
 
-@property (nonatomic, retain) CPTLayerHostingView *defaultLayerHostingView;
+@property (nonatomic, retain) CPTGraphHostingView *defaultLayerHostingView;
 @property (nonatomic, retain) NSMutableArray *graphs;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) id chartDataSource;
